@@ -134,7 +134,7 @@ installed app and Dereel's browser. All four rules are off until you turn them o
 
 While short videos are allowed, a small timer shows how long is left. It can be switched off.
 
-<details open>
+<details>
 <summary><b>Which rule wins when several apply</b></summary>
 
 <br>
@@ -142,24 +142,10 @@ While short videos are allowed, a small timer shows how long is left. It can be 
 Every decision, for both the installed app and the browser, comes from one function
 ([`PolicyEngine`](core/src/main/kotlin/app/dereel/core/policy/PolicyEngine.kt)).
 
-```mermaid
-flowchart TD
-    START(["A short-video screen is recognised"]) --> ON{"Is blocking on<br/>for this app?"}
-    ON -- no --> ALLOW(["Allow, and count the time"])
-    ON -- yes --> TEMP{"Temporary access<br/>running?"}
-    TEMP -- yes --> ALLOW
-    TEMP -- no --> SLEEP{"Sleep schedule<br/>on right now?"}
-    SLEEP -- yes --> BLOCK(["Block, and say why"])
-    SLEEP -- no --> USED{"Daily allowance<br/>used up?"}
-    USED -- yes --> BLOCK
-    USED -- no --> RESTING{"On an<br/>interval break?"}
-    RESTING -- yes --> BLOCK
-    RESTING -- no --> SHARED{"The one reel<br/>someone sent you?"}
-    SHARED -- yes --> ALLOW
-    SHARED -- no --> LEFT{"Allowance or<br/>interval time left?"}
-    LEFT -- yes --> ALLOW
-    LEFT -- no --> BLOCK
-```
+<img src="docs/assets/rule-order.svg" width="100%" alt="Eight checks, made from top to bottom. The first one that applies decides. 1: blocking is off for this app, so allow, and the time is still counted. 2: temporary access is running, so allow. 3: the sleep schedule is on, so block. 4: today's allowance is used up, so block. 5: an interval break is running, so block. 6: it is the one reel someone sent you, so allow, in Instagram inside Dereel only. 7: allowance or interval time is left, so allow. 8: none of these, so block.">
+
+So the sleep schedule and a break also block a reel someone sent you, and temporary access
+overrides both because you asked for it.
 
 If Dereel cannot act at all, for example because Accessibility access was turned off, the answer
 is "unavailable". It is never reported as successful blocking.
@@ -247,7 +233,7 @@ flowchart LR
         Grants[GrantManager]
         Status[StatusEvaluator]
     end
-    Storage[(Room storage, private to the app)]
+    Storage[(Room storage)]
     Service --> Coordinator
     Web --> Coordinator
     Screens --> Monitor

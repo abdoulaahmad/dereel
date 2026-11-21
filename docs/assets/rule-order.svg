@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="572" viewBox="0 0 1200 572" role="img" aria-labelledby="ro-title ro-desc">
+  <title id="ro-title">The order in which Dereel checks its rules</title>
+  <desc id="ro-desc">Eight checks, from top to bottom. The first one that applies decides. 1: blocking is off for this app, allow. 2: temporary access is running, allow. 3: the sleep schedule is on, block. 4: today's allowance is used up, block. 5: an interval break is running, block. 6: it is the one reel someone sent you, allow. 7: allowance or interval time is left, allow. 8: none of these, block.</desc>
+  <style>
+    svg {
+      --card: #F6FAF8; --surface: #E9EFEC; --border: #BEC9C5; --text: #171D1B; --muted: #3F4946; --primary: #1C6A61;
+      --onprimary: #FFFFFF; --pc: #B4EDE2; --onpc: #00201C; --stop: #3F4946; --onstop: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --card: #0F1513; --surface: #1B2120; --border: #3F4946; --text: #DEE4E1; --muted: #BEC9C5; --primary: #98D3C7;
+        --onprimary: #003731; --pc: #005048; --onpc: #B4EDE2; --stop: #DEE4E1; --onstop: #171D1B;
+      }
+    }
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    .q { font-size: 19px; font-weight: 600; fill: var(--text); }
+    .n { font-size: 16px; fill: var(--muted); }
+    .num { font-size: 15px; font-weight: 700; fill: var(--onprimary); text-anchor: middle; }
+    .chip { font-size: 16px; font-weight: 700; text-anchor: middle; }
+
+    /* A marker steps down the list, one check at a time. Without animation it is hidden and the
+       list reads on its own. */
+    .step { animation: step 12s ease-in-out infinite; }
+    .mark { opacity: 0; animation: mark 12s linear infinite; }
+    @keyframes step {
+      0%, 9.500% { transform: translateY(0); }
+      12.500%, 22% { transform: translateY(60px); }
+      25%, 34.500% { transform: translateY(120px); }
+      37.500%, 47% { transform: translateY(180px); }
+      50%, 59.500% { transform: translateY(240px); }
+      62.500%, 72% { transform: translateY(300px); }
+      75%, 84.500% { transform: translateY(360px); }
+      87.500%, 100% { transform: translateY(420px); }
+    }
+    @keyframes mark { 0% { opacity: 0; } 3%, 96% { opacity: 1; } 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .step, .mark { animation: none; }
+    }
+  </style>
+
+  <!-- Its own background, so the text stays readable whatever the page colour is. -->
+  <rect x="1" y="1" width="1198" height="570" rx="28" fill="var(--card)" stroke="var(--border)" stroke-width="2"/>
+  <text x="40" y="46" font-size="20" font-weight="700" fill="var(--text)">Checked from top to bottom. The first one that applies decides.</text>
+
+  <!-- Rows -->
+  <g>
+    <rect x="40" y="76" width="1120" height="50" rx="14" fill="var(--surface)"/>
+    <circle cx="76" cy="101" r="15" fill="var(--primary)"/>
+    <text class="num" x="76" y="106.500">1</text>
+    <text class="q" x="108" y="107.500">Is blocking off for this app?</text>
+    <text class="n" x="560" y="106.500">The time is still counted.</text>
+    <rect x="1024" y="85" width="112" height="32" rx="16" fill="var(--pc)"/>
+    <text class="chip" x="1080" y="106.500" fill="var(--onpc)">Allow</text>
+  </g>
+  <g>
+    <rect x="40" y="136" width="1120" height="50" rx="14" fill="var(--surface)"/>
+    <circle cx="76" cy="161" r="15" fill="var(--primary)"/>
+    <text class="num" x="76" y="166.500">2</text>
+    <text class="q" x="108" y="167.500">Is temporary access running?</text>
+    <text class="n" x="560" y="166.500">You asked for it, so it comes first.</text>
+    <rect x="1024" y="145" width="112" height="32" rx="16" fill="var(--pc)"/>
+    <text class="chip" x="1080" y="166.500" fill="var(--onpc)">Allow</text>
+  </g>
+  <g>
+    <rect x="40" y="196" width="1120" height="50" rx="14" fill="var(--surface)"/>
+    <circle cx="76" cy="221" r="15" fill="var(--primary)"/>
+    <text class="num" x="76" y="226.500">3</text>
+    <text class="q" x="108" y="227.500">Is the sleep schedule on?</text>
+    <text class="n" x="560" y="226.500">Until the schedule ends.</text>
+    <rect x="1024" y="205" width="112" height="32" rx="16" fill="var(--stop)"/>
+    <text class="chip" x="1080" y="226.500" fill="var(--onstop)">Block</text>
+  </g>
+  <g>
+    <rect x="40" y="256" width="1120" height="50" rx="14" fill="var(--surface)"/>
+    <circle cx="76" cy="281" r="15" fill="var(--primary)"/>
+    <text class="num" x="76" y="286.500">4</text>
+    <text class="q" x="108" y="287.500">Is today's allowance used up?</text>
+    <text class="n" x="560" y="286.500">Until midnight.</text>
+    <rect x="1024" y="265" width="112" height="32" rx="16" fill="var(--stop)"/>
+    <text class="chip" x="1080" y="286.500" fill="var(--onstop)">Block</text>
+  </g>
+  <g>
+    <rect x="40" y="316" width="1120" height="50" rx="14" fill="var(--surface)"/>
+    <circle cx="76" cy="341" r="15" fill="var(--primary)"/>
+    <text class="num" x="76" y="346.500">5</text>
+    <text class="q" x="108" y="347.500">Is an interval break running?</text>
+    <text class="n" x="560" y="346.500">Until the break ends.</text>
+    <rect x="1024" y="325" width="112" height="32" rx="16" fill="var(--stop)"/>
+    <text class="chip" x="1080" y="346.500" fill="var(--onstop)">Block</text>
+  </g>
+  <g>
+    <rect x="40" y="376" width="1120" height="50" rx="14" fill="var(--surface)"/>
+    <circle cx="76" cy="401" r="15" fill="var(--primary)"/>
+    <text class="num" x="76" y="406.500">6</text>
+    <text class="q" x="108" y="407.500">Is it the one reel someone sent you?</text>
+    <text class="n" x="560" y="406.500">Instagram inside Dereel only.</text>
+    <rect x="1024" y="385" width="112" height="32" rx="16" fill="var(--pc)"/>
+    <text class="chip" x="1080" y="406.500" fill="var(--onpc)">Allow</text>
+  </g>
+  <g>
+    <rect x="40" y="436" width="1120" height="50" rx="14" fill="var(--surface)"/>
+    <circle cx="76" cy="461" r="15" fill="var(--primary)"/>
+    <text class="num" x="76" y="466.500">7</text>
+    <text class="q" x="108" y="467.500">Is allowance or interval time left?</text>
+    <text class="n" x="560" y="466.500">The timer shows how long.</text>
+    <rect x="1024" y="445" width="112" height="32" rx="16" fill="var(--pc)"/>
+    <text class="chip" x="1080" y="466.500" fill="var(--onpc)">Allow</text>
+  </g>
+  <g>
+    <rect x="40" y="496" width="1120" height="50" rx="14" fill="var(--surface)"/>
+    <circle cx="76" cy="521" r="15" fill="var(--primary)"/>
+    <text class="num" x="76" y="526.500">8</text>
+    <text class="q" x="108" y="527.500">None of these</text>
+    <text class="n" x="560" y="526.500">Blocking is the default.</text>
+    <rect x="1024" y="505" width="112" height="32" rx="16" fill="var(--stop)"/>
+    <text class="chip" x="1080" y="526.500" fill="var(--onstop)">Block</text>
+  </g>
+
+  <!-- Moving marker -->
+  <g class="step">
+    <rect class="mark" x="38" y="74" width="1124" height="54" rx="16" fill="none" stroke="var(--primary)" stroke-width="4"/>
+  </g>
+</svg>
