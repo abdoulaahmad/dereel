@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Needed to load Instagram, YouTube and Facebook inside Dereel. Dereel itself uploads nothing (SEC-01). -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Only for the optional "protection has stopped" alert. Asked for when the user turns it on. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Lets Dereel see whether the supported apps are installed (FR-03). -->
+    <queries>
+        <package android:name="com.instagram.android" />
+        <package android:name="com.google.android.youtube" />
+        <package android:name="com.snapchat.android" />
+        <package android:name="com.facebook.lite" />
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
+    <!-- SEC-07: no automatic cloud backup or device transfer in the first release. -->
+    <application
+        android:name=".DereelApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Dereel"
+        android:usesCleartextTraffic="false"
+        tools:targetApi="36">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".browser.BrowserActivity"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|smallestScreenSize"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- INT-01: links shared to Dereel are validated before anything opens. -->
+        <activity
+            android:name=".share.ShareReceiverActivity"
+            android:exported="true"
+            android:label="@string/share_target_label"
+            android:theme="@style/Theme.Dereel.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".nativeapp.DereelAccessibilityService"
+            android:exported="true"
+            android:label="@string/accessibility_service_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+    </application>
+</manifest>

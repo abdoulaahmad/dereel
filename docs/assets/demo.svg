@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="demo-title demo-desc">
+  <title id="demo-title">What happens when you open Shorts in an installed app</title>
+  <desc id="demo-desc">A schematic phone, not a screenshot. Step 1: the Shorts tab is tapped and a full-screen short video opens. Step 2: Dereel recognises the screen by its view IDs. Step 3: Dereel goes back once and shows a banner that reads "Shorts are blocked. Search, subscriptions and regular videos still work."</desc>
+  <style>
+    svg {
+      --card: #F6FAF8; --surface: #E9EFEC; --border: #BEC9C5; --line: #DAE5E1; --line2: #BEC9C5;
+      --text: #171D1B; --muted: #3F4946; --primary: #1C6A61; --onprimary: #FFFFFF; --pc: #B4EDE2;
+      --bezel: #171D1B; --screen: #FFFFFF; --nav: #EFF5F2; --thumb1: #FFDCC2; --thumb2: #D6E3FF;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --card: #0F1513; --surface: #1B2120; --border: #3F4946; --line: #3F4946; --line2: #56615D;
+        --text: #DEE4E1; --muted: #BEC9C5; --primary: #98D3C7; --onprimary: #003731; --pc: #005048;
+        --bezel: #3F4946; --screen: #171D1B; --nav: #1B2120; --thumb1: #6B3A0E; --thumb2: #1F3F73;
+      }
+    }
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+
+    /* One 12-second loop. Without animation the picture rests on the result: back on the home
+       screen with Dereel's banner showing. */
+    .tap { opacity: 0; animation: tap 12s ease-out infinite; }
+    .short { opacity: 0; animation: short 12s ease-in-out infinite; }
+    .scan { opacity: 0; animation: scan 12s ease-in-out infinite; }
+    .banner { animation: banner 12s ease-in-out infinite; }
+    .hl { opacity: 0; }
+    .hl1 { animation: hl1 12s ease-in-out infinite; }
+    .hl2 { animation: hl2 12s ease-in-out infinite; }
+    .hl3 { animation: hl3 12s ease-in-out infinite; }
+
+    @keyframes tap {
+      0%, 7% { opacity: 0; transform: scale(.4); }
+      9% { opacity: .5; transform: scale(1); }
+      16%, 100% { opacity: 0; transform: scale(2.3); }
+    }
+    @keyframes short {
+      0%, 14% { opacity: 0; transform: translate(0, 48px); }
+      18%, 30% { opacity: 1; transform: translate(0, 0); }
+      34%, 100% { opacity: 0; transform: translate(120px, 0); }
+    }
+    @keyframes scan {
+      0%, 19% { opacity: 0; }
+      22%, 30% { opacity: 1; }
+      33%, 100% { opacity: 0; }
+    }
+    @keyframes banner {
+      0%, 32% { opacity: 0; transform: translateY(-18px); }
+      36%, 74% { opacity: 1; transform: translateY(0); }
+      79%, 100% { opacity: 0; transform: translateY(-18px); }
+    }
+    @keyframes hl1 { 0%, 6% { opacity: 0; } 9%, 17% { opacity: 1; } 20%, 100% { opacity: 0; } }
+    @keyframes hl2 { 0%, 18% { opacity: 0; } 21%, 30% { opacity: 1; } 33%, 100% { opacity: 0; } }
+    @keyframes hl3 { 0%, 31% { opacity: 0; } 34%, 74% { opacity: 1; } 79%, 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .tap, .short, .scan, .banner, .hl1, .hl2, .hl3 { animation: none; }
+    }
+  </style>
+  <defs>
+    <clipPath id="scr">
+      <rect x="74" y="50" width="284" height="500" rx="34"/>
+    </clipPath>
+    <linearGradient id="sg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3A2A52"/>
+      <stop offset="1" stop-color="#101816"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="1" y="1" width="1198" height="598" rx="28" fill="var(--card)" stroke="var(--border)" stroke-width="2"/>
+
+  <!-- Phone -->
+  <rect x="64" y="40" width="304" height="520" rx="44" fill="var(--bezel)"/>
+  <rect x="74" y="50" width="284" height="500" rx="34" fill="var(--screen)"/>
+  <g clip-path="url(#scr)">
+    <!-- Home screen of a generic video app -->
+    <rect x="92" y="72" width="22" height="22" rx="6" fill="var(--line2)"/>
+    <text x="124" y="89" font-size="15" font-weight="600" fill="var(--text)">Video app</text>
+    <circle cx="334" cy="83" r="12" fill="var(--line)"/>
+
+    <rect x="90" y="112" width="252" height="132" rx="16" fill="var(--thumb1)"/>
+    <path d="M206 162 L232 178 L206 194 Z" fill="var(--text)" fill-opacity=".55"/>
+    <circle cx="102" cy="266" r="10" fill="var(--line2)"/>
+    <rect x="122" y="257" width="180" height="9" rx="4.5" fill="var(--line2)"/>
+    <rect x="122" y="272" width="120" height="8" rx="4" fill="var(--line)"/>
+
+    <rect x="90" y="296" width="252" height="132" rx="16" fill="var(--thumb2)"/>
+    <path d="M206 346 L232 362 L206 378 Z" fill="var(--text)" fill-opacity=".55"/>
+    <circle cx="102" cy="450" r="10" fill="var(--line2)"/>
+    <rect x="122" y="441" width="160" height="9" rx="4.5" fill="var(--line2)"/>
+    <rect x="122" y="456" width="100" height="8" rx="4" fill="var(--line)"/>
+
+    <!-- Bottom navigation -->
+    <rect x="74" y="486" width="284" height="64" fill="var(--nav)"/>
+    <path d="M74 486 H358" stroke="var(--border)" stroke-width="1"/>
+    <g font-size="11" text-anchor="middle">
+      <path d="M100.500 509 L109.500 500 L118.500 509 V517 H100.500 Z" fill="var(--text)"/>
+      <text x="109.500" y="536" font-weight="700" fill="var(--text)">Home</text>
+
+      <rect x="173.500" y="498" width="14" height="20" rx="4" fill="none" stroke="var(--muted)" stroke-width="1.8"/>
+      <path d="M178.500 504.500 L184 508 L178.500 511.500 Z" fill="var(--muted)"/>
+      <text x="180.500" y="536" fill="var(--muted)">Shorts</text>
+
+      <path d="M245.500 501 H257.500" stroke="var(--muted)" stroke-width="1.8" stroke-linecap="round"/>
+      <rect x="242.500" y="505" width="18" height="12" rx="3" fill="none" stroke="var(--muted)" stroke-width="1.8"/>
+      <text x="251.500" y="536" fill="var(--muted)">Subs</text>
+
+      <circle cx="322.500" cy="508" r="8" fill="none" stroke="var(--muted)" stroke-width="1.8"/>
+      <text x="322.500" y="536" fill="var(--muted)">You</text>
+    </g>
+
+    <!-- Step 1: tap on the Shorts tab -->
+    <g transform="translate(180.500 512)">
+      <circle class="tap" r="15" fill="var(--primary)"/>
+    </g>
+
+    <!-- The full-screen short video that opens -->
+    <g class="short">
+      <rect x="74" y="50" width="284" height="500" fill="url(#sg)"/>
+      <text x="94" y="94" font-size="18" font-weight="700" fill="#FFFFFF">Shorts</text>
+      <circle cx="216" cy="282" r="36" fill="#FFFFFF" fill-opacity=".14"/>
+      <path d="M205 264 L235 282 L205 300 Z" fill="#FFFFFF" fill-opacity=".85"/>
+      <circle cx="328" cy="384" r="14" fill="#FFFFFF" fill-opacity=".2"/>
+      <circle cx="328" cy="428" r="14" fill="#FFFFFF" fill-opacity=".2"/>
+      <circle cx="328" cy="472" r="14" fill="#FFFFFF" fill-opacity=".2"/>
+      <rect x="94" y="496" width="160" height="9" rx="4.500" fill="#FFFFFF" fill-opacity=".6"/>
+      <rect x="94" y="512" width="110" height="8" rx="4" fill="#FFFFFF" fill-opacity=".35"/>
+    </g>
+
+    <!-- Step 2: Dereel recognises the screen -->
+    <g class="scan">
+      <rect x="84" y="60" width="264" height="480" rx="26" fill="none" stroke="#A8F0E4" stroke-width="2.500" stroke-dasharray="9 8"/>
+      <rect x="131" y="336" width="170" height="30" rx="15" fill="#12302B" stroke="#A8F0E4" stroke-width="1.500"/>
+      <text x="216" y="356" font-size="12.500" font-weight="600" text-anchor="middle" fill="#A8F0E4">recognised by view ID</text>
+    </g>
+
+    <!-- Step 3: back on the home screen, with Dereel's banner -->
+    <g class="banner">
+      <rect x="86" y="108" width="260" height="106" rx="16" fill="#12302B" stroke="#A8F0E4" stroke-opacity=".3" stroke-width="1.500"/>
+      <text x="104" y="138" font-size="15" font-weight="700" fill="#FFFFFF">Shorts are blocked</text>
+      <text x="104" y="160" font-size="12" fill="#FFFFFF" fill-opacity=".88">Search, subscriptions and regular</text>
+      <text x="104" y="176" font-size="12" fill="#FFFFFF" fill-opacity=".88">videos still work.</text>
+      <text x="328" y="200" font-size="13" font-weight="700" text-anchor="end" fill="#A8F0E4">Dismiss</text>
+    </g>
+  </g>
+
+  <!-- Steps -->
+  <text x="440" y="92" font-size="13" font-weight="700" letter-spacing="1.6" fill="var(--primary)">IN THE INSTALLED APP</text>
+  <text x="440" y="132" font-size="30" font-weight="700" fill="var(--text)">What happens when you open Shorts</text>
+
+  <rect x="440" y="168" width="700" height="88" rx="20" fill="var(--surface)"/>
+  <rect class="hl hl1" x="440" y="168" width="700" height="88" rx="20" fill="var(--pc)"/>
+  <circle cx="486" cy="212" r="20" fill="var(--primary)"/>
+  <text x="486" y="218.500" font-size="18" font-weight="700" text-anchor="middle" fill="var(--onprimary)">1</text>
+  <text x="524" y="207" font-size="19" font-weight="600" fill="var(--text)">You open Shorts</text>
+  <text x="524" y="232" font-size="15" fill="var(--muted)">From the Shorts tab or from a link.</text>
+
+  <rect x="440" y="272" width="700" height="88" rx="20" fill="var(--surface)"/>
+  <rect class="hl hl2" x="440" y="272" width="700" height="88" rx="20" fill="var(--pc)"/>
+  <circle cx="486" cy="316" r="20" fill="var(--primary)"/>
+  <text x="486" y="322.500" font-size="18" font-weight="700" text-anchor="middle" fill="var(--onprimary)">2</text>
+  <text x="524" y="311" font-size="19" font-weight="600" fill="var(--text)">Dereel recognises the screen</text>
+  <text x="524" y="336" font-size="15" fill="var(--muted)">It looks for the app's view IDs. It never reads the text on screen.</text>
+
+  <rect x="440" y="376" width="700" height="88" rx="20" fill="var(--surface)"/>
+  <rect class="hl hl3" x="440" y="376" width="700" height="88" rx="20" fill="var(--pc)"/>
+  <circle cx="486" cy="420" r="20" fill="var(--primary)"/>
+  <text x="486" y="426.500" font-size="18" font-weight="700" text-anchor="middle" fill="var(--onprimary)">3</text>
+  <text x="524" y="415" font-size="19" font-weight="600" fill="var(--text)">It goes back once and says why</text>
+  <text x="524" y="440" font-size="15" fill="var(--muted)">Search, subscriptions and regular videos keep working.</text>
+
+  <text x="440" y="506" font-size="15" fill="var(--muted)">Timed on one phone (Pixel 9, YouTube app, debug build):</text>
+  <text x="440" y="530" font-size="15" font-weight="600" fill="var(--text)">Back was sent 73 to 102 ms after Android reported the Shorts screen.</text>
+</svg>

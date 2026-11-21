@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Native overlays. White on #12302B is above 13:1; the accent on the surface is above 7:1 (NFR-03). -->
+    <color name="overlay_surface">#FF12302B</color>
+    <color name="overlay_on_surface">#FFFFFFFF</color>
+    <color name="overlay_accent">#FFA8F0E4</color>
+    <color name="launcher_background">#FF1C6A61</color>
+</resources>

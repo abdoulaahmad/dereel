@@ -1,0 +1,26 @@
+# Build output
+.gradle/
+build/
+*/build/
+.kotlin/
+captures/
+*.apk
+*.aab
+
+# Local configuration
+local.properties
+.idea/
+*.iml
+.DS_Store
+.claude/
+
+# Signing material never belongs in the repository
+*.jks
+*.keystore
+keystore.properties
+
+# Third-party reference material. These files are a SocialLite APK and its
+# static analysis. They must never be committed or redistributed with Dereel
+# (SRS SEC-08). Dereel is implemented independently of them.
+/base.apk
+/analysis/

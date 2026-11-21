@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copy rules (UX-02, UX-10, UX-11): describe outcomes in plain words. Give the specific reason and
+  what still works. No guilt, no streaks and no invented time-saved figures. Internal terms such as
+  adapter, policy engine or DOM must not appear here.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Dereel</string>
+    <string name="share_target_label">Open in Dereel</string>
+    <string name="accessibility_service_label">Dereel short-video blocking</string>
+    <string name="accessibility_service_description">Dereel uses this access to recognise Reels, Shorts and Spotlight screens in the Instagram, YouTube, Facebook Lite and Snapchat apps, and to go back or cover them when they’re blocked. It’s set up to receive events from those four apps only. Processing happens on this phone. Dereel doesn’t save or send messages, screenshots or what you watch.</string>
+
+    <!-- Platforms -->
+    <string name="platform_instagram">Instagram</string>
+    <string name="platform_youtube">YouTube</string>
+    <string name="platform_facebook">Facebook</string>
+    <string name="platform_snapchat">Snapchat</string>
+    <string name="app_facebook_lite">Facebook Lite</string>
+    <string name="short_video_reels">Reels</string>
+    <string name="short_video_shorts">Shorts</string>
+    <!-- Used in sentences such as “%1$s are blocked”, so it is a plural phrase. -->
+    <string name="short_video_spotlight">Spotlight videos</string>
+    <string name="list_and">%1$s and %2$s</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_activity">Activity</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Common actions -->
+    <string name="action_ok">OK</string>
+    <string name="action_open">Open</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_save">Save</string>
+    <string name="action_close">Close</string>
+    <string name="action_back">Back</string>
+    <string name="action_continue">Continue</string>
+    <string name="action_not_now">Not now</string>
+    <string name="action_dismiss">Dismiss</string>
+    <string name="action_go_back">Go back</string>
+    <string name="action_try_again">Try again</string>
+    <string name="action_end_now">End now</string>
+    <string name="action_allow_five_minutes">Allow 5 minutes</string>
+    <string name="action_update_webview">Update WebView</string>
+
+    <!-- Status (UX-08) -->
+    <string name="status_active">Active</string>
+    <string name="status_off">Off</string>
+    <string name="status_paused">Paused</string>
+    <string name="status_needs_setup">Needs setup</string>
+    <string name="status_needs_attention">Needs attention</string>
+    <string name="status_unavailable">Unavailable</string>
+    <string name="more_controls_expanded">Expanded</string>
+    <string name="more_controls_collapsed">Collapsed</string>
+
+    <string name="method_label_native">%1$s app</string>
+    <string name="method_label_browser">Inside Dereel</string>
+    <string name="method_label_none">Opening method not chosen</string>
+
+    <string name="reason_protecting_native">%1$s are blocked in the %2$s app.</string>
+    <string name="reason_protecting_browser">%1$s are blocked when you open %2$s inside Dereel.</string>
+    <string name="reason_limiting_native">%1$s in the %2$s app follow your time limits.</string>
+    <string name="reason_limiting_browser">%1$s follow your time limits when you open %2$s inside Dereel.</string>
+    <string name="reason_blocking_off">Blocking is off. Time on %1$s is still measured.</string>
+    <string name="reason_temporary_access">%1$s are allowed until %2$s.</string>
+    <string name="reason_method_not_chosen">Choose how to open %1$s.</string>
+    <string name="reason_accessibility_not_enabled">Turn on Dereel in Accessibility settings to block %1$s in the %2$s app.</string>
+    <string name="reason_accessibility_turned_off">Accessibility access for Dereel was turned off, so %1$s aren’t blocked in the %2$s app.</string>
+    <string name="reason_service_not_running">Dereel’s Accessibility service isn’t responding. Turning it off and on again in Accessibility settings usually fixes this.</string>
+    <string name="reason_layout_not_recognized">Dereel doesn’t recognise this version of the %1$s app, so %2$s may not be blocked there.</string>
+    <string name="reason_app_not_installed">The %1$s app isn’t installed on this phone.</string>
+    <string name="reason_webview_unavailable">Android System WebView is missing or turned off, so %1$s can’t open inside Dereel.</string>
+    <string name="reason_webview_outdated">Android System WebView needs an update for Dereel’s filters to work reliably.</string>
+
+    <string name="recovery_choose_method">Choose how to open</string>
+    <string name="recovery_set_up">Set up protection</string>
+    <string name="recovery_fix">Fix protection</string>
+    <string name="recovery_open_inside">Open inside Dereel</string>
+    <string name="recovery_end_temporary">End temporary access</string>
+
+    <!-- Durations -->
+    <string name="duration_seconds" tools:ignore="PluralsCandidate">%1$d sec</string>
+    <string name="duration_minutes" tools:ignore="PluralsCandidate">%1$d min</string>
+    <string name="duration_hours" tools:ignore="PluralsCandidate">%1$d h</string>
+    <string name="duration_hours_minutes" tools:ignore="PluralsCandidate">%1$d h %2$d min</string>
+
+    <!-- Home -->
+    <string name="overall_checking">Checking protection…</string>
+    <string name="overall_active_title">Protection is active</string>
+    <string name="overall_active_body">Everything shown below is working.</string>
+    <string name="overall_needs_action_title">Some protection needs your attention</string>
+    <string name="overall_needs_action_body">See the details below.</string>
+    <string name="overall_partly_title">Some protection is off or paused</string>
+    <string name="overall_partly_body">The details are below.</string>
+    <string name="overall_nothing_title">Add a platform to get started</string>
+    <string name="overall_nothing_body">Choose an app below.</string>
+    <string name="home_add_platform">Add %1$s</string>
+    <string name="home_open">Open %1$s</string>
+    <string name="home_settings_for">%1$s settings</string>
+    <string name="home_active_both">App and inside Dereel</string>
+    <string name="home_today_short">%1$s today</string>
+    <string name="home_add_first">Choose an app to start with</string>
+    <string name="home_add_more">Add another app</string>
+    <string name="home_sleep_active">Sleep schedule is on. Short videos are off until %1$s.</string>
+    <string name="home_grant_active">%1$s on %2$s are allowed until %3$s.</string>
+    <string name="usage_today">Today: %1$s on %2$s</string>
+
+    <!-- Allowance (FR-24) -->
+    <string name="allowance_title">Daily allowance</string>
+    <string name="allowance_explainer">Time for %1$s each day, shared between the %2$s app and Dereel. It resets at midnight.</string>
+    <string name="allowance_explainer_single">Time for %1$s each day. It resets at midnight.</string>
+    <string name="allowance_off">Off</string>
+    <string name="allowance_custom">Custom</string>
+    <string name="allowance_custom_label">Minutes per day</string>
+    <string name="allowance_custom_hint">Between 1 and 180 minutes</string>
+    <string name="allowance_custom_error">Enter a whole number from 1 to 180</string>
+    <string name="allowance_value">%1$s a day</string>
+    <string name="allowance_progress">%1$s of %2$s used today</string>
+    <string name="allowance_used_up">Today’s allowance for %1$s is used up. It resets at midnight.</string>
+    <string name="interval_title">Interval timer</string>
+    <string name="interval_explainer">Watch %1$s for a set time, then take a break. They’re blocked during the break.</string>
+    <string name="interval_value">%1$s, then a %2$s break</string>
+    <string name="interval_watch_label">Watch for</string>
+    <string name="interval_break_label">Then take a break of</string>
+    <string name="interval_on_break">On a break until %1$s</string>
+    <string name="interval_watching">Interval timer: %1$s until a break</string>
+
+    <!-- Platform screen -->
+    <string name="platform_not_added">%1$s isn’t added to Dereel.</string>
+    <string name="platform_rules">Rules</string>
+    <string name="platform_time">Time limits</string>
+    <string name="platform_opening">Opening</string>
+    <string name="platform_open_with">Open with</string>
+    <string name="platform_account">Account and data</string>
+    <string name="rule_block">Block %1$s</string>
+    <string name="rule_block_desc_instagram">Messages, search and profiles keep working.</string>
+    <string name="rule_block_desc_youtube">Search, subscriptions and regular videos keep working.</string>
+    <string name="rule_block_desc_facebook">Your feed, groups, search and profiles keep working.</string>
+    <string name="rule_block_desc_snapchat">Chats, the camera, Stories and the map keep working.</string>
+    <string name="rule_shared">Allow shared videos</string>
+    <string name="rule_shared_desc">Watch one reel someone sent you in Messages, or a reel link you share to Dereel, when you open Instagram inside Dereel. Moving on to another reel takes you back. In the Instagram app, shared reels follow your usual rules.</string>
+    <string name="more_controls">More controls</string>
+    <string name="more_controls_scope">These apply when you open %1$s inside Dereel. They aren’t available in the app.</string>
+    <string name="control_ig_explore">Hide Explore recommendations</string>
+    <string name="control_ig_explore_desc">Search keeps working. The recommended grid is hidden.</string>
+    <string name="control_ig_suggested">Hide suggested posts</string>
+    <string name="control_ig_suggested_desc">Hides posts marked “Suggested for you” in your feed.</string>
+    <string name="control_ig_sponsored">Hide sponsored posts (best effort)</string>
+    <string name="control_ig_sponsored_desc">Hides some posts marked “Sponsored”. Not every ad is removed.</string>
+    <string name="control_yt_home">Hide home recommendations</string>
+    <string name="control_yt_home_desc">Search, subscriptions and channels keep working.</string>
+    <string name="control_yt_watch_next">Hide recommendations below videos</string>
+    <string name="control_yt_watch_next_desc">Hides suggested videos and up-next suggestions on the watch page.</string>
+    <string name="control_yt_promoted">Hide promoted videos (best effort)</string>
+    <string name="control_yt_promoted_desc">Hides some promoted items in feeds and search. Ads in the video player aren’t removed.</string>
+    <string name="sign_out_desc">Ends the %1$s sign-in inside Dereel’s browser.</string>
+
+    <!-- Temporary access (FR-29) -->
+    <string name="grant_section">Temporary access</string>
+    <string name="grant_request">Allow %1$s for 5 minutes</string>
+    <string name="grant_active_until">%1$s are allowed until %2$s.</string>
+    <string name="grant_counts">Time still counts toward today’s total.</string>
+    <string name="grant_replace_title">Replace temporary access?</string>
+    <string name="grant_replace_body">%1$s are allowed until %2$s. Starting again replaces that with a new 5 minutes, ending at %3$s.</string>
+    <string name="grant_replace_confirm">Start 5 new minutes</string>
+    <string name="grant_replace_keep">Keep current</string>
+
+    <!-- Opening method (UX-04) -->
+    <string name="method_dialog_title">How should Dereel open %1$s?</string>
+    <string name="method_native_title">Use the %1$s app</string>
+    <string name="method_native_body_instagram">Dereel blocks Reels in the Instagram app using Accessibility access. Explore and suggested posts aren’t filtered there.</string>
+    <string name="method_native_body_youtube">Dereel blocks Shorts in the YouTube app using Accessibility access. Recommendations aren’t filtered there.</string>
+    <string name="method_native_body_snapchat">Dereel blocks Spotlight in the Snapchat app using Accessibility access. Snapchat can’t be opened inside Dereel.</string>
+    <string name="method_native_body_facebook">Dereel blocks Reels in the Facebook Lite app using Accessibility access. It recognises Facebook Lite’s full-screen video player, so any video opened full screen there is blocked too. The regular Facebook app isn’t supported.</string>
+    <string name="method_native_missing">The %1$s app isn’t installed on this phone.</string>
+    <string name="method_browser_title">Open inside Dereel</string>
+    <string name="method_browser_body_instagram">Instagram opens in Dereel’s browser. Reels are blocked, Explore and suggested posts can be hidden, and a reel sent to you in Messages can be allowed.</string>
+    <string name="method_browser_body_youtube">YouTube opens in Dereel’s browser. Shorts are blocked, and home and up-next recommendations can be hidden.</string>
+    <string name="method_browser_body_facebook">Facebook opens in Dereel’s browser, where Reels and the Video tab are blocked.</string>
+    <string name="method_only_native_title">%1$s opens in its own app</string>
+    <string name="method_only_browser_title">%1$s opens inside Dereel</string>
+    <string name="app_missing_title">%1$s app not found</string>
+    <string name="app_missing_body">Dereel can’t find the %1$s app on this phone. You can open %2$s inside Dereel instead. Your saved choice stays the same.</string>
+    <string name="app_missing_body_no_browser">Dereel can’t find the %1$s app on this phone. %1$s can’t be opened inside Dereel.</string>
+
+    <!-- Accessibility disclosure (SEC-02, UX-07) -->
+    <string name="disclosure_title">Accessibility access</string>
+    <string name="disclosure_intro">To block short videos inside the Instagram, YouTube, Facebook Lite and Snapchat apps, Dereel needs Android Accessibility access.</string>
+    <string name="disclosure_can_see_title">What this access allows</string>
+    <string name="disclosure_can_see_body">Accessibility access is powerful. It lets Dereel see what’s on screen in Instagram, YouTube, Facebook Lite and Snapchat, which can include messages and other personal content.</string>
+    <string name="disclosure_uses_title">What Dereel uses</string>
+    <string name="disclosure_uses_body">Dereel checks which app is in front and the screen’s layout identifiers, to recognise a Reels, Shorts or Spotlight screen. It’s set up to receive events from Instagram, YouTube, Facebook Lite and Snapchat only.</string>
+    <string name="disclosure_keeps_title">What Dereel keeps</string>
+    <string name="disclosure_keeps_body">Processing happens on this phone. Dereel doesn’t save or send messages, screenshots or what you watch. It keeps only the time spent on those short-video screens, on this phone, for 30 days.</string>
+    <string name="disclosure_does_title">What Dereel does</string>
+    <string name="disclosure_does_body">When a blocked screen opens, Dereel goes back once or covers it, and tells you why.</string>
+    <string name="disclosure_turn_off">You can turn this off at any time in Android Settings. Your other Dereel features keep working without it.</string>
+    <string name="disclosure_restricted_hint">If Android says this setting is restricted, open Dereel’s App info, tap the menu and choose “Allow restricted settings”.</string>
+    <string name="disclosure_open_settings">Open Accessibility settings</string>
+
+    <!-- Blocking messages (UX-10) -->
+    <string name="block_title_reels">Reels are blocked</string>
+    <string name="block_title_shorts">Shorts are blocked</string>
+    <string name="block_title_spotlight">Spotlight is blocked</string>
+    <string name="block_title_reels_allowance">Today’s Reels allowance is used up</string>
+    <string name="block_title_shorts_allowance">Today’s Shorts allowance is used up</string>
+    <string name="block_title_spotlight_allowance">Today’s Spotlight allowance is used up</string>
+    <string name="block_allowance_resets">It resets at midnight.</string>
+    <string name="block_title_sleep">%1$s are off until %2$s</string>
+    <string name="block_title_sleep_plain">%1$s are off for now</string>
+    <string name="block_sleep_body">Your sleep schedule is on.</string>
+    <string name="block_title_break">On a break from %1$s until %2$s</string>
+    <string name="block_title_break_plain">On a break from %1$s</string>
+    <string name="block_break_body">Your interval timer started a break.</string>
+    <string name="timer_left_today">%1$s left today</string>
+    <string name="timer_until_break">%1$s until break</string>
+    <string name="timer_temporary">%1$s of temporary access left</string>
+    <string name="timer_today">%1$s today</string>
+    <string name="alert_channel_name">Protection status</string>
+    <string name="alert_channel_description">Tells you when Dereel stops blocking short videos in your apps.</string>
+    <string name="alert_stopped_title">Dereel protection has stopped</string>
+    <string name="alert_stopped_body">Short videos aren’t being blocked in your apps right now. Tap to see why and fix it.</string>
+    <string name="block_still_works_instagram">Messages, search and profiles still work.</string>
+    <string name="block_still_works_youtube">Search, subscriptions and regular videos still work.</string>
+    <string name="block_still_works_facebook">Your feed, groups, search and profiles still work.</string>
+    <string name="block_still_works_snapchat">Chats, the camera, Stories and the map still work.</string>
+    <string name="block_shared_route_hint">To watch a reel someone sent you, open Instagram inside Dereel.</string>
+
+    <!-- Browser -->
+    <string name="browser_subtitle">Inside Dereel</string>
+    <string name="browser_close">Close and return to Dereel</string>
+    <string name="browser_back">Back</string>
+    <string name="browser_refresh">Refresh</string>
+    <string name="browser_went_back">Dereel took you back to the previous page.</string>
+    <string name="browser_returned_to_conversation">That was the reel shared with you. Dereel took you back to your conversation.</string>
+    <string name="browser_go_home">Go to %1$s home</string>
+    <string name="external_title">Open outside Dereel?</string>
+    <string name="external_body">This link goes to %1$s. It will open in another app.</string>
+    <string name="external_open">Open</string>
+    <string name="error_offline_title">You’re offline</string>
+    <string name="error_offline_body">%1$s needs an internet connection. Your Dereel settings and history are still available.</string>
+    <string name="error_page_title">This page didn’t load</string>
+    <string name="error_page_body">Check your connection and try again.</string>
+    <string name="error_tls_title">Secure connection failed</string>
+    <string name="error_tls_body">Dereel stopped loading this page because its security certificate couldn’t be verified. Check your connection and your phone’s date and time.</string>
+    <string name="error_loop_title">Dereel couldn’t find a page to return to</string>
+    <string name="error_loop_body">%1$s kept going back to a blocked page, so Dereel stopped. You can start again from %1$s home.</string>
+    <string name="error_renderer_title">The page stopped working</string>
+    <string name="error_renderer_body">Close this screen and open it again from Dereel.</string>
+    <string name="error_webview_title">Browser component unavailable</string>
+    <string name="error_webview_body">Android System WebView is missing or turned off, so %1$s can’t open inside Dereel.</string>
+    <string name="snack_app_link_blocked">Dereel didn’t open this link because it would open another app.</string>
+    <string name="snack_download_unsupported">Downloads aren’t supported inside Dereel.</string>
+    <string name="snack_upload_unsupported">Uploading files isn’t supported inside Dereel.</string>
+    <string name="snack_no_app_for_link">No app on this phone can open that link.</string>
+
+    <!-- Sharing (INT-01) -->
+    <string name="share_unsupported">Dereel can open Instagram, YouTube and Facebook links only.</string>
+    <string name="share_platform_not_added">Add %1$s in Dereel to open this link.</string>
+
+    <!-- Data actions (FR-19, FR-34, FR-35, SEC-07) -->
+    <string name="sign_out_title">Sign out of %1$s inside Dereel</string>
+    <string name="clear_browser_title">Clear %1$s browser data</string>
+    <string name="clear_browser_scope">This clears the %1$s sign-in and site data stored in Dereel’s browser for %2$s. You’ll need to sign in again inside Dereel.</string>
+    <string name="clear_browser_linked_facebook">facebook.com is included because Instagram can sign in with Facebook.</string>
+    <string name="clear_browser_linked_google">Because YouTube uses your Google account to sign in, this also signs you out of Google inside Dereel’s browser.</string>
+    <string name="clear_browser_also_signs_out">%1$s inside Dereel uses the same sign-in data, so you’ll be signed out there too.</string>
+    <string name="clear_browser_unaffected">Your other sign-ins inside Dereel (%1$s), the %2$s app and other browsers aren’t affected. Your Dereel settings and history stay.</string>
+    <string name="clear_browser_confirm">Sign out and clear</string>
+    <string name="clear_browser_done">Signed out of %1$s inside Dereel.</string>
+    <string name="clear_browser_partial">Most %1$s data was cleared, but some couldn’t be removed. Reset Dereel to remove everything.</string>
+    <string name="remove_platform_title">Remove %1$s from Dereel</string>
+    <string name="remove_platform_body">Dereel will stop blocking %1$s and measuring time for %2$s. Your %2$s history stays until you clear it in Settings. You can add %2$s again at any time.</string>
+    <string name="remove_platform_confirm">Remove</string>
+    <string name="clear_history_title">Clear usage history</string>
+    <string name="clear_history_body">This removes all recorded short-video time on this phone, up to 30 days. Today’s time is cleared too, so today’s daily allowances start again from zero. Your settings and sign-ins stay.</string>
+    <string name="clear_history_confirm">Clear history</string>
+    <string name="reset_title">Reset Dereel</string>
+    <string name="reset_body">This removes all Dereel settings, temporary access, usage history and every sign-in inside Dereel’s browser. Your social apps and other browsers aren’t affected. Dereel’s Accessibility access stays on until you turn it off in Android Settings.</string>
+    <string name="reset_confirm">Reset</string>
+    <string name="reset_done">Dereel has been reset.</string>
+
+    <!-- Activity (FR-31) -->
+    <string name="activity_intro">Time spent on short-video screens: Reels, Shorts and Spotlight. Stored only on this phone, for 30 days.</string>
+    <string name="activity_empty">Add a platform on Home to see activity here.</string>
+    <string name="activity_today">Today</string>
+    <string name="activity_previous">Previous 6 days</string>
+    <string name="activity_week_title">Last 7 days</string>
+    <string name="activity_week_none">No short-video time</string>
+    <string name="activity_week_none_body">Time is counted only while short videos are allowed and on screen. Blocked attempts add nothing.</string>
+    <string name="activity_day_none">No time</string>
+    <string name="activity_bar_label">%1$s: %2$s</string>
+    <string name="activity_platform_heading">%1$s · %2$s</string>
+    <string name="activity_split">%1$s app: %2$s · Inside Dereel: %3$s</string>
+    <string name="activity_native_only">In the %1$s app</string>
+    <string name="activity_browser_only">Inside Dereel</string>
+    <string name="activity_day_value">%1$s %2$s</string>
+
+    <!-- Settings -->
+    <string name="settings_protection">Protection</string>
+    <string name="settings_accessibility">Accessibility access</string>
+    <string name="settings_accessibility_on">On</string>
+    <string name="settings_accessibility_not_responding">On, but not responding</string>
+    <string name="settings_accessibility_off">Off</string>
+    <string name="settings_accessibility_desc">Used to block short videos in the Instagram, YouTube, Facebook Lite and Snapchat apps.</string>
+    <string name="settings_check_desc">Runs live checks and shows anything that needs fixing.</string>
+    <string name="settings_alerts">Alert me if protection stops</string>
+    <string name="settings_alerts_desc">Sends a notification when Dereel can no longer block short videos in your apps.</string>
+    <string name="settings_alerts_denied">Dereel needs permission to send notifications for this alert.</string>
+    <string name="settings_alerts_blocked">Notifications are turned off for Dereel, so this alert can’t be shown.</string>
+    <string name="settings_alerts_open">Open notification settings</string>
+    <string name="settings_time">Time</string>
+    <string name="settings_sleep">Sleep schedule</string>
+    <string name="settings_sleep_desc">Blocks short videos in every app between these times, even with allowance left.</string>
+    <string name="settings_sleep_start">Starts at</string>
+    <string name="settings_sleep_end">Ends at</string>
+    <string name="settings_sleep_same">Start and end are the same, so the schedule never applies.</string>
+    <string name="settings_live_timer">Show a timer while watching</string>
+    <string name="settings_live_timer_desc">A small timer shows the time left while short videos are allowed.</string>
+    <string name="check_title">Check protection</string>
+    <string name="check_running">Checking…</string>
+    <string name="check_nothing">Add an app on Home first.</string>
+    <string name="check_all_ok">Everything checked is working.</string>
+    <string name="check_some_fail">Some checks need your attention.</string>
+    <string name="check_note">This checks Dereel’s own setup. It can’t test an app you haven’t opened since Dereel started.</string>
+    <string name="check_result_pass">Working</string>
+    <string name="check_result_fail">Needs attention</string>
+    <string name="check_result_info">For information</string>
+    <string name="check_accessibility_on">Accessibility access is on</string>
+    <string name="check_accessibility_off">Accessibility access is off, so nothing is blocked in your apps</string>
+    <string name="check_service_ok">Dereel’s service is responding</string>
+    <string name="check_service_fail">Dereel’s service isn’t responding. Turn Dereel off and on again in Accessibility settings.</string>
+    <string name="check_scope_ok">Set up for every supported app</string>
+    <string name="check_scope_fail">The service is using old settings. Turn Dereel off and on again in Accessibility settings.</string>
+    <string name="check_app_recognized">%1$s app: recognised</string>
+    <string name="check_app_not_seen">%1$s app: not opened since Dereel started, so not checked yet</string>
+    <string name="check_app_not_recognized">%1$s app: Dereel doesn’t recognise this version</string>
+    <string name="check_app_missing">%1$s app: not installed</string>
+    <string name="check_browser_ok">Dereel’s browser is ready</string>
+    <string name="check_browser_missing">Android System WebView is missing or turned off</string>
+    <string name="check_browser_outdated">Android System WebView needs an update</string>
+    <string name="check_alerts_ok">Alerts are on</string>
+    <string name="check_alerts_off">Alerts are off, so Dereel won’t tell you if protection stops</string>
+    <string name="check_alerts_blocked">Alerts are on, but notifications are turned off for Dereel</string>
+    <string name="settings_temporary_access">Offer temporary access</string>
+    <string name="settings_temporary_access_desc">Show an option to allow 5 minutes on block screens. Time still counts toward your total.</string>
+    <string name="settings_data">Your data</string>
+    <string name="settings_clear_history_desc">Removes recorded time. Today’s allowances start again from zero.</string>
+    <string name="settings_reset_desc">Removes all settings, history and Dereel browser sign-ins.</string>
+    <string name="settings_help">Help</string>
+    <string name="settings_help_desc">Supported versions, known gaps and how Dereel handles your data.</string>
+    <string name="settings_about_body">Dereel %1$s. Open source. No account, no analytics and no ads. Your settings and history stay on this phone.</string>
+
+    <!-- Help (NFR-11, FR-38) -->
+    <string name="help_title">Supported versions and known gaps</string>
+    <string name="help_intro">These apps and websites change often. This is what Dereel covers in this version, and where it may not work.</string>
+    <string name="help_rules_version">Rules version %1$s</string>
+    <string name="help_verified_on">Tested on %1$s</string>
+    <string name="help_not_verified">Not yet verified on a device for this release.</string>
+    <string name="gap_ig_native_scope">Reels are recognised in the full-screen Reels viewer and the Reels tab. Reels playing inside your home feed aren’t blocked.</string>
+    <string name="gap_ig_native_shared">Reels sent to you in Messages follow your usual rules in the app. Open Instagram inside Dereel to watch one.</string>
+    <string name="gap_yt_native_scope">Shorts are recognised in the Shorts player. Shorts shelves on the home screen aren’t hidden in the app.</string>
+    <string name="gap_native_recs">Recommendations and ads aren’t filtered in the app.</string>
+    <string name="gap_native_layout">Recognition depends on the app’s layout and may stop working after an update. If Dereel can’t recognise the layout, Home shows Needs attention.</string>
+    <string name="gap_ig_web_scope">The Reels tab and reel pages are blocked, including after in-page navigation, refresh, Back and Forward. Reels in your home feed aren’t blocked.</string>
+    <string name="gap_ig_web_filters">Explore, suggested and sponsored filters depend on Instagram’s page layout and English labels. Not every ad is removed.</string>
+    <string name="gap_yt_web_scope">Shorts pages are blocked and Shorts shelves are hidden. A Short opened as a regular video link isn’t recognised as a Short.</string>
+    <string name="gap_yt_web_signin">Google may refuse to sign in inside Dereel’s browser. Browsing and search still work without signing in.</string>
+    <string name="gap_yt_web_ads">Promoted-item filtering is best effort. Ads in the video player aren’t removed.</string>
+    <string name="gap_fb_web_scope">Reel pages, the Reels feed, reel share links and the Video tab are blocked, including after in-page navigation, refresh, Back and Forward. A reel that plays inside your feed without opening its own page isn’t blocked.</string>
+    <string name="gap_fb_web_shortcuts">Hiding the Reels and Video shortcuts depends on Facebook’s page layout. If a shortcut still shows, opening it is blocked.</string>
+    <string name="gap_fb_web_messages">Facebook’s mobile website may ask you to use the Messenger app for messages. Dereel doesn’t open other apps for you.</string>
+    <string name="gap_fb_lite_scope">Reels are recognised by Facebook Lite’s full-screen video player. Any other video opened full screen there is blocked too. Videos that play inside the feed aren’t blocked.</string>
+    <string name="gap_fb_regular_app">The regular Facebook app isn’t supported. Reels there aren’t blocked.</string>
+    <string name="gap_sc_native_scope">Spotlight is recognised when its full-screen feed is open. Chats, the camera and the map aren’t affected.</string>
+    <string name="gap_sc_native_other">Videos in Stories and Discover aren’t blocked.</string>
+    <string name="gap_sc_no_browser">Snapchat can’t be opened inside Dereel, so there are no extra filters for it.</string>
+    <string name="gap_web_one_login">One account at a time inside Dereel.</string>
+    <string name="gap_general">Dereel is a voluntary self-control tool. It can’t prevent uninstalling, turning off access, modified devices or every change these apps and websites make.</string>
+    <string name="gap_pip">If an app keeps a short video playing in a small floating window after you leave it (picture-in-picture), Dereel doesn’t see it: that time isn’t counted or limited. You can turn off picture-in-picture for the app in Android settings.</string>
+    <string name="gap_alert_limit">The “protection has stopped” alert can’t be shown if Android stops Dereel completely. Home always shows the real state when you open it.</string>
+    <string name="privacy_title">How Dereel handles your data</string>
+    <string name="privacy_no_account">No Dereel account, analytics, advertising code or automatic uploads.</string>
+    <string name="privacy_stored">Stored on this phone: your settings, temporary access, and time spent on short-video screens for 30 days.</string>
+    <string name="privacy_never">Never stored by Dereel: messages, page text, screenshots, browsing history, passwords or account names.</string>
+    <string name="privacy_accessibility">Accessibility processing happens on this phone, for Instagram, YouTube, Facebook Lite and Snapchat only.</string>
+    <string name="privacy_backup">Dereel’s data isn’t included in Android backups.</string>
+
+    <!-- Onboarding (UX-06) -->
+    <string name="onboarding_step">Step %1$d of %2$d</string>
+    <string name="onboarding_finish">Finish setup</string>
+    <string name="onboarding_platforms_title">Which apps do you want help with?</string>
+    <string name="onboarding_platforms_body">Dereel blocks short-video feeds and keeps the useful parts: messages, search and regular videos.</string>
+    <string name="onboarding_platform_blocks">Blocks %1$s</string>
+    <string name="onboarding_platform_only_native">In the %1$s app only</string>
+    <string name="onboarding_platform_only_browser">Only when you open %1$s inside Dereel</string>
+    <string name="onboarding_no_account">No account needed. You won’t sign in to anything during setup. You can add more apps later.</string>
+    <string name="onboarding_rules_title">Choose your rules</string>
+    <string name="onboarding_rules_body">You can change these at any time.</string>
+    <string name="onboarding_activate_title">Turn on protection</string>
+    <string name="onboarding_activate_body">Choose how each app opens. Dereel remembers this choice.</string>
+    <string name="onboarding_accessibility_body">Blocking inside the installed apps needs Accessibility access. Dereel explains what it can see before you turn it on.</string>
+    <string name="onboarding_accessibility_later">You can finish now and turn this on later. Home will show Needs setup until it’s on.</string>
+</resources>

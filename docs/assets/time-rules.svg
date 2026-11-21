@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="304" viewBox="0 0 1200 304" role="img" aria-labelledby="tr-title tr-desc">
+  <title id="tr-title">Dereel's four time rules</title>
+  <desc id="tr-desc">Four cards. Daily allowance: a bar filling to 9 of 15 minutes used today. Interval timer: a marker moving through watch, break, watch. Sleep schedule: a 24-hour dial with 10 PM to 7 AM marked. Temporary access: a ring counting down from 5 minutes.</desc>
+  <style>
+    svg {
+      --surface: #E9EFEC; --border: #BEC9C5; --line: #D2DDD9; --text: #171D1B; --muted: #3F4946;
+      --primary: #1C6A61; --pc: #B4EDE2; --onpc: #00201C; --tert: #7A5900; --tertc: #FFDEA6;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --surface: #1B2120; --border: #3F4946; --line: #3F4946; --text: #DEE4E1; --muted: #BEC9C5;
+        --primary: #98D3C7; --pc: #005048; --onpc: #B4EDE2; --tert: #F5BE48; --tertc: #5C4200;
+      }
+    }
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    .title { font-size: 19px; font-weight: 700; fill: var(--text); }
+    .value { font-size: 16px; font-weight: 600; fill: var(--text); }
+    .note { font-size: 14px; fill: var(--muted); }
+    .tick { font-size: 12px; fill: var(--muted); }
+
+    /* One 8-second loop for every card. */
+    .fill { animation: fill 8s ease-in-out infinite; }
+    .head { animation: head 8s linear infinite; }
+    .watching { animation: watching 8s linear infinite; }
+    .resting { opacity: 0; animation: resting 8s linear infinite; }
+    .orbit { animation: orbit 8s linear infinite; }
+    .ring { animation: ring 8s linear infinite; }
+    .n5 { animation: n5 8s linear infinite; }
+    .n4, .n3, .n2, .n1 { opacity: 0; }
+    .n4 { animation: n4 8s linear infinite; }
+    .n3 { animation: n3 8s linear infinite; }
+    .n2 { animation: n2 8s linear infinite; }
+    .n1 { animation: n1 8s linear infinite; }
+
+    @keyframes fill { 0% { transform: scaleX(0); } 35%, 88% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+    @keyframes head { from { transform: translateX(0); } to { transform: translateX(234px); } }
+    @keyframes watching { 0%, 19.900% { opacity: 1; } 20%, 79.900% { opacity: 0; } 80%, 100% { opacity: 1; } }
+    @keyframes resting { 0%, 19.900% { opacity: 0; } 20%, 79.900% { opacity: 1; } 80%, 100% { opacity: 0; } }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    @keyframes ring { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 289; } }
+    @keyframes n5 { 0%, 19.900% { opacity: 1; } 20%, 100% { opacity: 0; } }
+    @keyframes n4 { 0%, 19.900% { opacity: 0; } 20%, 39.900% { opacity: 1; } 40%, 100% { opacity: 0; } }
+    @keyframes n3 { 0%, 39.900% { opacity: 0; } 40%, 59.900% { opacity: 1; } 60%, 100% { opacity: 0; } }
+    @keyframes n2 { 0%, 59.900% { opacity: 0; } 60%, 79.900% { opacity: 1; } 80%, 100% { opacity: 0; } }
+    @keyframes n1 { 0%, 79.900% { opacity: 0; } 80%, 100% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      .fill, .head, .watching, .resting, .orbit, .ring, .n5, .n4, .n3, .n2, .n1 { animation: none; }
+    }
+  </style>
+
+  <!-- 1. Daily allowance -->
+  <g transform="translate(0 0)">
+    <rect x="1" y="1" width="280" height="302" rx="24" fill="var(--surface)" stroke="var(--border)" stroke-width="1.500"/>
+    <circle cx="44" cy="46" r="20" fill="var(--pc)"/>
+    <circle cx="44" cy="46" r="9" fill="none" stroke="var(--onpc)" stroke-width="2"/>
+    <path d="M44 41 V46 L48 49" fill="none" stroke="var(--onpc)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="title" x="76" y="53">Daily allowance</text>
+
+    <text class="tick" x="24" y="124">0</text>
+    <text class="tick" x="258" y="124" text-anchor="end">15 min</text>
+    <rect x="24" y="134" width="234" height="16" rx="8" fill="var(--line)"/>
+    <g transform="translate(24 134)">
+      <rect class="fill" width="140" height="16" rx="8" fill="var(--primary)"/>
+    </g>
+
+    <text class="value" x="24" y="216">9 min of 15 min used today</text>
+    <text class="note" x="24" y="244">A set amount each day.</text>
+    <text class="note" x="24" y="266">It resets at midnight.</text>
+  </g>
+
+  <!-- 2. Interval timer -->
+  <g transform="translate(306 0)">
+    <rect x="1" y="1" width="280" height="302" rx="24" fill="var(--surface)" stroke="var(--border)" stroke-width="1.500"/>
+    <circle cx="44" cy="46" r="20" fill="var(--pc)"/>
+    <rect x="38" y="38" width="4.500" height="16" rx="2" fill="var(--onpc)"/>
+    <rect x="46" y="38" width="4.500" height="16" rx="2" fill="var(--onpc)"/>
+    <text class="title" x="76" y="53">Interval timer</text>
+
+    <text class="tick" x="24" y="124">Watch</text>
+    <text class="tick" x="73" y="124">Break</text>
+    <text class="tick" x="258" y="124" text-anchor="end">Watch</text>
+    <rect x="24" y="134" width="45" height="16" rx="8" fill="var(--primary)"/>
+    <rect x="73" y="134" width="136" height="16" rx="8" fill="var(--tertc)" stroke="var(--tert)" stroke-width="1.500"/>
+    <rect x="213" y="134" width="45" height="16" rx="8" fill="var(--primary)"/>
+    <g transform="translate(24 142)">
+      <circle class="head" r="9" fill="var(--text)" stroke="var(--surface)" stroke-width="3"/>
+    </g>
+
+    <text class="value watching" x="24" y="216">4:54 until break</text>
+    <text class="value resting" x="24" y="216">On a break until 12:36 AM</text>
+    <text class="note" x="24" y="244">Watch for a set time, then a</text>
+    <text class="note" x="24" y="266">break. Blocked during the break.</text>
+  </g>
+
+  <!-- 3. Sleep schedule -->
+  <g transform="translate(612 0)">
+    <rect x="1" y="1" width="280" height="302" rx="24" fill="var(--surface)" stroke="var(--border)" stroke-width="1.500"/>
+    <circle cx="44" cy="46" r="20" fill="var(--pc)"/>
+    <path d="M47 36 A10.500 10.500 0 1 0 54 53 A8.500 8.500 0 0 1 47 36 Z" fill="var(--onpc)"/>
+    <text class="title" x="76" y="53">Sleep schedule</text>
+
+    <circle cx="141" cy="140" r="44" fill="none" stroke="var(--line)" stroke-width="10"/>
+    <!-- 10 PM to 7 AM on a 24-hour dial, midnight at the top -->
+    <path d="M119 101.900 A44 44 0 0 1 183.500 151.390" fill="none" stroke="var(--primary)" stroke-width="10" stroke-linecap="round"/>
+    <text class="tick" x="141" y="145" text-anchor="middle" font-weight="700">24 h</text>
+    <g transform="translate(141 140)">
+      <g class="orbit">
+        <circle cy="-44" r="8" fill="var(--text)" stroke="var(--surface)" stroke-width="3"/>
+      </g>
+    </g>
+
+    <text class="value" x="24" y="216">10:00 PM to 7:00 AM</text>
+    <text class="note" x="24" y="244">Short videos are off in every</text>
+    <text class="note" x="24" y="266">app, even with allowance left.</text>
+  </g>
+
+  <!-- 4. Temporary access -->
+  <g transform="translate(918 0)">
+    <rect x="1" y="1" width="280" height="302" rx="24" fill="var(--surface)" stroke="var(--border)" stroke-width="1.500"/>
+    <circle cx="44" cy="46" r="20" fill="var(--pc)"/>
+    <circle cx="44" cy="48" r="8" fill="none" stroke="var(--onpc)" stroke-width="2"/>
+    <path d="M44 36 V40 M41 36 H47 M44 48 V44" fill="none" stroke="var(--onpc)" stroke-width="2" stroke-linecap="round"/>
+    <text class="title" x="76" y="53">Temporary access</text>
+
+    <circle cx="141" cy="140" r="46" fill="none" stroke="var(--line)" stroke-width="10"/>
+    <g transform="translate(141 140) rotate(-90)">
+      <circle class="ring" r="46" fill="none" stroke="var(--primary)" stroke-width="10" stroke-linecap="round" stroke-dasharray="289"/>
+    </g>
+    <g font-size="20" font-weight="700" text-anchor="middle" fill="var(--text)">
+      <text class="n5" x="141" y="147">5:00</text>
+      <text class="n4" x="141" y="147">4:00</text>
+      <text class="n3" x="141" y="147">3:00</text>
+      <text class="n2" x="141" y="147">2:00</text>
+      <text class="n1" x="141" y="147">1:00</text>
+    </g>
+
+    <text class="value" x="24" y="216">5 minutes, when you ask</text>
+    <text class="note" x="24" y="244">Off unless you turn it on.</text>
+    <text class="note" x="24" y="266">The time still counts.</text>
+  </g>
+</svg>

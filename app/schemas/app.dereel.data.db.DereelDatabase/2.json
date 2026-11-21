@@ -1,0 +1,362 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "0165798a548f145aa1191f0f5186d337",
+    "entities": [
+      {
+        "tableName": "platform_config",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`platformId` TEXT NOT NULL, `selected` INTEGER NOT NULL, `openingMethod` TEXT, `blockShortVideos` INTEGER NOT NULL, `allowSharedVideos` INTEGER NOT NULL, `allowanceEnabled` INTEGER NOT NULL, `allowanceMinutes` INTEGER, `browserControls` TEXT NOT NULL, `revision` INTEGER NOT NULL, `intervalEnabled` INTEGER NOT NULL DEFAULT 0, `intervalWatchMinutes` INTEGER NOT NULL DEFAULT 10, `intervalBreakMinutes` INTEGER NOT NULL DEFAULT 30, PRIMARY KEY(`platformId`))",
+        "fields": [
+          {
+            "fieldPath": "platformId",
+            "columnName": "platformId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "selected",
+            "columnName": "selected",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "openingMethod",
+            "columnName": "openingMethod",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "blockShortVideos",
+            "columnName": "blockShortVideos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "allowSharedVideos",
+            "columnName": "allowSharedVideos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "allowanceEnabled",
+            "columnName": "allowanceEnabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "allowanceMinutes",
+            "columnName": "allowanceMinutes",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "browserControls",
+            "columnName": "browserControls",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "revision",
+            "columnName": "revision",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "intervalEnabled",
+            "columnName": "intervalEnabled",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "intervalWatchMinutes",
+            "columnName": "intervalWatchMinutes",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "10"
+          },
+          {
+            "fieldPath": "intervalBreakMinutes",
+            "columnName": "intervalBreakMinutes",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "30"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "platformId"
+          ]
+        }
+      },
+      {
+        "tableName": "app_preferences",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `onboardingComplete` INTEGER NOT NULL, `temporaryAccessEnabled` INTEGER NOT NULL, `nativeEverConnected` INTEGER NOT NULL, `sleepEnabled` INTEGER NOT NULL DEFAULT 0, `sleepStartMinute` INTEGER NOT NULL DEFAULT 1320, `sleepEndMinute` INTEGER NOT NULL DEFAULT 420, `protectionAlerts` INTEGER NOT NULL DEFAULT 0, `liveTimer` INTEGER NOT NULL DEFAULT 1, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "onboardingComplete",
+            "columnName": "onboardingComplete",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "temporaryAccessEnabled",
+            "columnName": "temporaryAccessEnabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nativeEverConnected",
+            "columnName": "nativeEverConnected",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sleepEnabled",
+            "columnName": "sleepEnabled",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "sleepStartMinute",
+            "columnName": "sleepStartMinute",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "1320"
+          },
+          {
+            "fieldPath": "sleepEndMinute",
+            "columnName": "sleepEndMinute",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "420"
+          },
+          {
+            "fieldPath": "protectionAlerts",
+            "columnName": "protectionAlerts",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "liveTimer",
+            "columnName": "liveTimer",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "1"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "usage_segment",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `sessionId` TEXT NOT NULL, `platformId` TEXT NOT NULL, `method` TEXT NOT NULL, `startWallMs` INTEGER NOT NULL, `endWallMs` INTEGER NOT NULL, `elapsedMs` INTEGER NOT NULL, `day` INTEGER NOT NULL, `outcome` TEXT NOT NULL, `state` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sessionId",
+            "columnName": "sessionId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "platformId",
+            "columnName": "platformId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "method",
+            "columnName": "method",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startWallMs",
+            "columnName": "startWallMs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endWallMs",
+            "columnName": "endWallMs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "elapsedMs",
+            "columnName": "elapsedMs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "day",
+            "columnName": "day",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "outcome",
+            "columnName": "outcome",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_usage_segment_day",
+            "unique": false,
+            "columnNames": [
+              "day"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_usage_segment_day` ON `${TABLE_NAME}` (`day`)"
+          },
+          {
+            "name": "index_usage_segment_state",
+            "unique": false,
+            "columnNames": [
+              "state"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_usage_segment_state` ON `${TABLE_NAME}` (`state`)"
+          }
+        ]
+      },
+      {
+        "tableName": "temporary_grant",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `platformId` TEXT NOT NULL, `issuedWallMs` INTEGER NOT NULL, `expiresWallMs` INTEGER NOT NULL, `issuedMonotonicMs` INTEGER NOT NULL, `bootId` TEXT NOT NULL, `state` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "platformId",
+            "columnName": "platformId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "issuedWallMs",
+            "columnName": "issuedWallMs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "expiresWallMs",
+            "columnName": "expiresWallMs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "issuedMonotonicMs",
+            "columnName": "issuedMonotonicMs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bootId",
+            "columnName": "bootId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_temporary_grant_state",
+            "unique": false,
+            "columnNames": [
+              "state"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_temporary_grant_state` ON `${TABLE_NAME}` (`state`)"
+          }
+        ]
+      },
+      {
+        "tableName": "pacing_state",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`platformId` TEXT NOT NULL, `usedMs` INTEGER NOT NULL, `breakUntilWallMs` INTEGER NOT NULL, `lastViewedWallMs` INTEGER NOT NULL, PRIMARY KEY(`platformId`))",
+        "fields": [
+          {
+            "fieldPath": "platformId",
+            "columnName": "platformId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "usedMs",
+            "columnName": "usedMs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "breakUntilWallMs",
+            "columnName": "breakUntilWallMs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastViewedWallMs",
+            "columnName": "lastViewedWallMs",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "platformId"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0165798a548f145aa1191f0f5186d337')"
+    ]
+  }
+}
