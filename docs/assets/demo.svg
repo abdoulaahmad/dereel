@@ -134,38 +134,38 @@
     <!-- Step 3: back on the home screen, with Dereel's banner -->
     <g class="banner">
       <rect x="86" y="108" width="260" height="106" rx="16" fill="#12302B" stroke="#A8F0E4" stroke-opacity=".3" stroke-width="1.500"/>
-      <text x="104" y="138" font-size="15" font-weight="700" fill="#FFFFFF">Shorts are blocked</text>
-      <text x="104" y="160" font-size="12" fill="#FFFFFF" fill-opacity=".88">Search, subscriptions and regular</text>
-      <text x="104" y="176" font-size="12" fill="#FFFFFF" fill-opacity=".88">videos still work.</text>
+      <text x="104" y="138" font-size="16" font-weight="700" fill="#FFFFFF">Shorts are blocked</text>
+      <text x="104" y="160" font-size="12.500" fill="#FFFFFF" fill-opacity=".88">Search, subscriptions and regular</text>
+      <text x="104" y="176" font-size="12.500" fill="#FFFFFF" fill-opacity=".88">videos still work.</text>
       <text x="328" y="200" font-size="13" font-weight="700" text-anchor="end" fill="#A8F0E4">Dismiss</text>
     </g>
   </g>
 
   <!-- Steps -->
-  <text x="440" y="92" font-size="13" font-weight="700" letter-spacing="1.6" fill="var(--primary)">IN THE INSTALLED APP</text>
+  <text x="440" y="92" font-size="14.500" font-weight="700" letter-spacing="1.6" fill="var(--primary)">IN THE INSTALLED APP</text>
   <text x="440" y="132" font-size="30" font-weight="700" fill="var(--text)">What happens when you open Shorts</text>
 
   <rect x="440" y="168" width="700" height="88" rx="20" fill="var(--surface)"/>
   <rect class="hl hl1" x="440" y="168" width="700" height="88" rx="20" fill="var(--pc)"/>
   <circle cx="486" cy="212" r="20" fill="var(--primary)"/>
   <text x="486" y="218.500" font-size="18" font-weight="700" text-anchor="middle" fill="var(--onprimary)">1</text>
-  <text x="524" y="207" font-size="19" font-weight="600" fill="var(--text)">You open Shorts</text>
-  <text x="524" y="232" font-size="15" fill="var(--muted)">From the Shorts tab or from a link.</text>
+  <text x="524" y="206" font-size="21" font-weight="600" fill="var(--text)">You open Shorts</text>
+  <text x="524" y="234" font-size="17" fill="var(--muted)">From the Shorts tab or from a link.</text>
 
   <rect x="440" y="272" width="700" height="88" rx="20" fill="var(--surface)"/>
   <rect class="hl hl2" x="440" y="272" width="700" height="88" rx="20" fill="var(--pc)"/>
   <circle cx="486" cy="316" r="20" fill="var(--primary)"/>
   <text x="486" y="322.500" font-size="18" font-weight="700" text-anchor="middle" fill="var(--onprimary)">2</text>
-  <text x="524" y="311" font-size="19" font-weight="600" fill="var(--text)">Dereel recognises the screen</text>
-  <text x="524" y="336" font-size="15" fill="var(--muted)">It looks for the app's view IDs. It never reads the text on screen.</text>
+  <text x="524" y="310" font-size="21" font-weight="600" fill="var(--text)">Dereel recognises the screen</text>
+  <text x="524" y="338" font-size="17" fill="var(--muted)">It looks for the app's view IDs. It never reads the text on screen.</text>
 
   <rect x="440" y="376" width="700" height="88" rx="20" fill="var(--surface)"/>
   <rect class="hl hl3" x="440" y="376" width="700" height="88" rx="20" fill="var(--pc)"/>
   <circle cx="486" cy="420" r="20" fill="var(--primary)"/>
   <text x="486" y="426.500" font-size="18" font-weight="700" text-anchor="middle" fill="var(--onprimary)">3</text>
-  <text x="524" y="415" font-size="19" font-weight="600" fill="var(--text)">It goes back once and says why</text>
-  <text x="524" y="440" font-size="15" fill="var(--muted)">Search, subscriptions and regular videos keep working.</text>
+  <text x="524" y="414" font-size="21" font-weight="600" fill="var(--text)">It goes back once and says why</text>
+  <text x="524" y="442" font-size="17" fill="var(--muted)">Search, subscriptions and regular videos keep working.</text>
 
-  <text x="440" y="506" font-size="15" fill="var(--muted)">Timed on one phone (Pixel 9, YouTube app, debug build):</text>
-  <text x="440" y="530" font-size="15" font-weight="600" fill="var(--text)">Back was sent 73 to 102 ms after Android reported the Shorts screen.</text>
+  <text x="440" y="506" font-size="17" fill="var(--muted)">Timed on one phone (Pixel 9, YouTube app, debug build):</text>
+  <text x="440" y="532" font-size="17" font-weight="600" fill="var(--text)">Back was sent 73 to 102 ms after Android reported the Shorts screen.</text>
 </svg>

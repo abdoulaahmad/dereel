@@ -134,7 +134,7 @@ installed app and Dereel's browser. All four rules are off until you turn them o
 
 While short videos are allowed, a small timer shows how long is left. It can be switched off.
 
-<details>
+<details open>
 <summary><b>Which rule wins when several apply</b></summary>
 
 <br>
@@ -152,9 +152,9 @@ flowchart TD
     SLEEP -- yes --> BLOCK(["Block, and say why"])
     SLEEP -- no --> USED{"Daily allowance<br/>used up?"}
     USED -- yes --> BLOCK
-    USED -- no --> BREAK{"On an<br/>interval break?"}
-    BREAK -- yes --> BLOCK
-    BREAK -- no --> SHARED{"The one reel<br/>someone sent you?"}
+    USED -- no --> RESTING{"On an<br/>interval break?"}
+    RESTING -- yes --> BLOCK
+    RESTING -- no --> SHARED{"The one reel<br/>someone sent you?"}
     SHARED -- yes --> ALLOW
     SHARED -- no --> LEFT{"Allowance or<br/>interval time left?"}
     LEFT -- yes --> ALLOW
@@ -234,28 +234,29 @@ on the JVM. `:app` holds everything that touches Android.
 
 ```mermaid
 flowchart LR
-    subgraph APP[":app (Android)"]
-        UI["Compose UI<br/>Home, Activity, Settings"]
-        A11Y["Accessibility service<br/>and overlays"]
-        WEB["Filtered browser<br/>WebView and page rules"]
-        MON["StatusMonitor<br/>live probes"]
-        DB[("Room<br/>app-private storage")]
+    subgraph Android [app module on Android]
+        Screens[Compose screens]
+        Service[Accessibility service and overlays]
+        Web[Filtered browser and page rules]
+        Monitor[Status monitor]
     end
-    subgraph CORE[":core (pure Kotlin)"]
-        COORD["ProtectionCoordinator"]
-        POLICY["PolicyEngine"]
-        USAGE["UsageTracker"]
-        GRANT["GrantManager"]
-        STATUS["StatusEvaluator"]
+    subgraph Core [core module in pure Kotlin]
+        Coordinator[ProtectionCoordinator]
+        Policy[PolicyEngine]
+        Usage[UsageTracker]
+        Grants[GrantManager]
+        Status[StatusEvaluator]
     end
-    A11Y --> COORD
-    WEB --> COORD
-    COORD --> POLICY
-    COORD --> USAGE
-    COORD --> GRANT
-    UI --> MON --> STATUS
-    USAGE --> DB
-    GRANT --> DB
+    Storage[(Room storage, private to the app)]
+    Service --> Coordinator
+    Web --> Coordinator
+    Screens --> Monitor
+    Monitor --> Status
+    Coordinator --> Policy
+    Coordinator --> Usage
+    Coordinator --> Grants
+    Usage --> Storage
+    Grants --> Storage
 ```
 
 The Accessibility service and the browser never decide anything themselves. They report what

@@ -13,10 +13,10 @@
       }
     }
     text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-    .title { font-size: 19px; font-weight: 700; fill: var(--text); }
-    .value { font-size: 16px; font-weight: 600; fill: var(--text); }
-    .note { font-size: 14px; fill: var(--muted); }
-    .tick { font-size: 12px; fill: var(--muted); }
+    .title { font-size: 20px; font-weight: 700; fill: var(--text); }
+    .value { font-size: 17px; font-weight: 600; fill: var(--text); }
+    .note { font-size: 15.500px; fill: var(--muted); }
+    .tick { font-size: 13.500px; fill: var(--muted); }
 
     /* One 8-second loop for every card. */
     .fill { animation: fill 8s ease-in-out infinite; }
@@ -88,8 +88,8 @@
 
     <text class="value watching" x="24" y="216">4:54 until break</text>
     <text class="value resting" x="24" y="216">On a break until 12:36 AM</text>
-    <text class="note" x="24" y="244">Watch for a set time, then a</text>
-    <text class="note" x="24" y="266">break. Blocked during the break.</text>
+    <text class="note" x="24" y="244">Watch, then take a break.</text>
+    <text class="note" x="24" y="266">Blocked during the break.</text>
   </g>
 
   <!-- 3. Sleep schedule -->
