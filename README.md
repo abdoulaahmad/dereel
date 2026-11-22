@@ -4,9 +4,9 @@
 
 <p>
   <a href="#what-it-does">What it does</a> ·
+  <a href="#screens">Screens</a> ·
   <a href="#supported-apps">Supported apps</a> ·
   <a href="#time-rules">Time rules</a> ·
-  <a href="#screens">Screens</a> ·
   <a href="#privacy">Privacy</a> ·
   <a href="#how-it-is-built">How it is built</a> ·
   <a href="#build-and-test">Build</a> ·
@@ -49,6 +49,66 @@ Dereel can protect an app in two ways. Both follow the same rules and share the 
 | **How it works** | An Accessibility service recognises the short-video screen, goes back once and tells you why. If the screen is still there, Dereel covers it. | You open the site in Dereel's own filtered browser. Short-video pages do not load, and recommendation shelves can be hidden. |
 | **What it needs** | Accessibility access, which Dereel explains at the moment you turn it on | Signing in to the site inside Dereel |
 | **Good for** | Keeping the app you already use | Apps you would rather not install, and an Instagram reel that someone sent you |
+
+## Screens
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="docs/assets/screens/home.png" width="250" alt="Home screen in the light theme. A teal card says Protection is active, with a Check protection button. Two tiles show 1 minute of short videos today and 1 minute over the last 7 days. Below are cards for Instagram, YouTube and Facebook, each with its logo, the word Active, and one Open button."><br>
+      <sub><b>Home</b><br>One status, your time today and this week, and one Open button per app</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/assets/screens/activity.png" width="250" alt="Activity screen. A chart of the last 7 days with one bar for today, then today's time for Instagram Reels, YouTube Shorts and Facebook Reels. YouTube shows 1 minute of its 30-minute allowance used."><br>
+      <sub><b>Activity</b><br>The last seven days, and today for each app</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/assets/screens/settings.png" width="250" alt="Settings screen. A Protection card with Accessibility access, Check protection and Alert me if protection stops. Below it, Your apps lists Instagram, YouTube, Facebook and Snapchat with their logos and a one-line summary of each one's rules."><br>
+      <sub><b>Settings</b><br>Protection, your apps, time and your data</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <img src="docs/assets/screens/platform.png" width="250" alt="Instagram's own screen. Its status, an Open Instagram button, switches for Block Reels and Allow shared videos, and time limits with a daily allowance of 15 minutes and an interval timer."><br>
+      <sub><b>One app</b><br>Its status first, then its rules and time limits</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/assets/screens/home-dark.png" width="250" alt="The same Home screen in the dark theme."><br>
+      <sub><b>Dark theme</b><br>Follows the phone's setting</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/assets/screens/setup.png" width="250" alt="First-run setup. Choose your apps: Instagram, YouTube, Facebook and Snapchat, each with its logo, what Dereel blocks in it, and a checkbox."><br>
+      <sub><b>Setup</b><br>Pick your apps, then set a rule for each</sub>
+    </td>
+  </tr>
+</table>
+
+<sub>Screenshots of version 0.1.0 on an emulator. The app logos belong to their owners
+(see <a href="docs/THIRD_PARTY.md">docs/THIRD_PARTY.md</a>).</sub>
+
+The app has three places: **Home**, **Activity** and **Settings**.
+
+- **Home** is the dashboard. One card gives the status of everything, two tiles show your
+  short-video time today and over the last seven days, and each app has one card with one Open
+  button.
+- **Activity** shows the last seven days as a chart and as numbers, and today's time per app.
+- **Settings** has five groups: Protection, Your apps, Time, Your data and About. Each app's row
+  says what is switched on for it, for example "Blocking Reels · 15 min a day", and opens that
+  app's rules.
+
+A few things it is careful about:
+
+- **Status is checked, not assumed.** Each way of opening an app shows one of Active, Off, Paused,
+  Needs setup, Needs attention or Unavailable. The Home card only looks "active" when everything
+  shown is working, and Dereel does not show protection as working when its service is off.
+- **Check protection** runs live checks and lists anything that needs fixing. An app that has
+  not been opened yet is shown as "not checked yet", not as passed.
+- **Alert me if protection stops** sends a notification when app protection that was working has
+  stopped. It is off until you turn it on.
+- **Blocking messages are calm and specific.** They say what was blocked, why, and what still
+  works. They do not lecture.
+- **Nothing depends on colour or a logo alone.** Every status has an icon and words, and every app
+  is named in text beside its logo.
 
 ## Supported apps
 
@@ -151,40 +211,6 @@ If Dereel cannot act at all, for example because Accessibility access was turned
 is "unavailable". It is never reported as successful blocking.
 
 </details>
-
-## Screens
-
-<table>
-  <tr>
-    <td align="center" width="33%">
-      <img src="docs/assets/screens/home.png" width="250" alt="Home screen: a status card that says Protection is active, then Instagram, YouTube and Facebook cards, each with its logo and one Open button, and a chip to add Snapchat."><br>
-      <sub><b>Home</b><br>One status, and one Open button per app</sub>
-    </td>
-    <td align="center" width="33%">
-      <img src="docs/assets/screens/platform.png" width="250" alt="Instagram screen: its status, an Open Instagram button, switches for Block Reels and Allow shared videos, and time limits with a daily allowance of 15 minutes and an interval timer."><br>
-      <sub><b>A platform</b><br>Status for each way of opening it, then its rules</sub>
-    </td>
-    <td align="center" width="33%">
-      <img src="docs/assets/screens/settings.png" width="250" alt="Settings screen: a Protection card with Accessibility access, Check protection and Alert me if protection stops, then Your apps, listing Instagram, YouTube, Facebook and Snapchat with their logos and a one-line summary of each one's rules."><br>
-      <sub><b>Settings</b><br>Protection, your apps, time and your data</sub>
-    </td>
-  </tr>
-</table>
-
-<sub>Screenshots from an emulator, in the light theme. There is a dark theme too.</sub>
-
-The app has three places: **Home**, **Activity** and **Settings**. A few things it is careful about:
-
-- **Status is checked, not assumed.** Each way of opening an app shows one of Active, Off, Paused,
-  Needs setup, Needs attention or Unavailable. Dereel does not show protection as working when
-  its service is off.
-- **Check protection** runs live checks and lists anything that needs fixing. An app that has
-  not been opened yet is shown as "not checked yet", not as passed.
-- **Alert me if protection stops** sends a notification when app protection that was working has
-  stopped. It is off until you turn it on.
-- **Blocking messages are calm and specific.** They say what was blocked, why, and what still
-  works. They do not lecture.
-- **Activity** shows today's short-video time and the last seven days, as a chart and as numbers.
 
 ## Privacy
 
@@ -291,7 +317,7 @@ test run on a reference device.
 |---|---|
 | Automated tests | 198 JVM tests (182 in `:core`, 16 in `:app`) and 14 page-rule tests pass. Lint is clean. |
 | Tried on a phone | Pixel 9, Android 17: blocking in the Instagram, YouTube, Facebook Lite and Snapchat apps, and the sleep schedule and interval timer with YouTube |
-| Tried on an emulator only | The "protection has stopped" alert, the live timer inside Dereel's browser, and the newest Settings screen and app logos |
+| Tried on an emulator only | The "protection has stopped" alert, the live timer inside Dereel's browser, and the newest Home and Settings screens and app logos |
 | Not tried yet | A daily allowance on a phone, time rules with Instagram, Facebook Lite or Snapchat, Facebook signed in inside Dereel, TalkBack and large text on the newest screens |
 | Not built yet | TikTok, Instagram Lite, the regular Facebook app |
 

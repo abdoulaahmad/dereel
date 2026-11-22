@@ -85,6 +85,20 @@ no TalkBack or large-text pass was made.
 | Accessibility state is shown with words and an icon, and "off" is not an error (NFR-03, UX-11) | 🔬 | The "Off" pill was seen. The "On" and "Not responding" pills were not seen in this run. |
 | After removing a platform its screen closes | 🔬 | "Remove Snapchat from Dereel" returned to Settings, with Snapchat listed as not added. |
 
+## Dashboard (scope change S-05)
+
+Seen on the emulator on 22 Nov 2026, in the light and dark themes and at 150% text size. Not yet
+seen on a phone, and no TalkBack pass was made.
+
+| Requirement | State | Evidence |
+|---|---|---|
+| Home never looks "active" unless every shown method is working (UX-08) | 🔬 🟡 | The teal card and "Protection is active" were seen with three working methods. After adding Snapchat, whose app is not installed on the emulator, the card changed to "Some protection needs your attention" in the error colours with a warning icon. The rule itself is unchanged and covered by `StatusEvaluatorTest`. |
+| Status is shown with an icon and words, never colour alone (NFR-03) | 🔬 | Status card: icon, title and sentence in every state seen. App cards: a check icon with the word "Active", or the full status pill for a problem. |
+| One primary Open action per platform (UX-03) | 🔬 | One "Open" button per app card; settings stay behind the gear. |
+| A problem keeps its reason and one way to fix it (UX-09) | 🔬 | The Snapchat card showed "Unavailable" and "The Snapchat app isn't installed on this phone." under the compact header. |
+| The dashboard's figures match Activity (FR-31 to FR-33) | 🔬 🟡 | After about a minute of allowed Shorts inside Dereel's browser: "Today 1 min", "Last 7 days 1 min" with today's bar raised, the YouTube card "1 min of 30 min used today", and Activity showed the same 1 min. No automated test compares the two screens. |
+| Large text (NFR-02) | 🔬 | At 150% text size nothing was cut off; the "Active" line wrapped onto two lines and the Open button stayed full size. |
+
 ## Policy (4.1)
 
 | ID | Status | Evidence |

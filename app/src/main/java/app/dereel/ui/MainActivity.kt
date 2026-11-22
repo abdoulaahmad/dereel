@@ -139,7 +139,20 @@ private fun MainScaffold(state: MainState, vm: MainViewModel, opener: PlatformOp
     ) { padding ->
         NavHost(nav, startDestination = TopLevel.HOME.route, modifier = Modifier.padding(padding)) {
             composable(TopLevel.HOME.route) {
-                HomeScreen(state, vm, opener, onPlatformSettings = { nav.navigate("platform/${it.id}") })
+                HomeScreen(
+                    state,
+                    vm,
+                    opener,
+                    onPlatformSettings = { nav.navigate("platform/${it.id}") },
+                    // The same move as tapping the Activity tab.
+                    onActivity = {
+                        nav.navigate(TopLevel.ACTIVITY.route) {
+                            popUpTo(nav.graph.findStartDestination().id) { saveState = true }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    },
+                )
             }
             composable(TopLevel.ACTIVITY.route) { ActivityScreen(state) }
             composable(TopLevel.SETTINGS.route) {

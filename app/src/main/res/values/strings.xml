@@ -99,6 +99,8 @@
     <string name="home_settings_for">%1$s settings</string>
     <string name="home_active_both">App and inside Dereel</string>
     <string name="home_today_short">%1$s today</string>
+    <string name="home_stat_today_caption">on short videos</string>
+    <string name="home_see_activity">see your activity</string>
     <string name="home_add_first">Choose an app to start with</string>
     <string name="home_add_more">Add another app</string>
     <string name="home_sleep_active">Sleep schedule is on. Short videos are off until %1$s.</string>

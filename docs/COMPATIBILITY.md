@@ -53,6 +53,19 @@ Not tried in that run: the "On" and "Not responding" states of the Accessibility
 confirmation dialog for clearing browser data, TalkBack and large text. Nothing of S-04 has been
 seen on a phone.
 
+Fourth emulator run (22 Nov 2026, same emulator and setup as the third; scope change S-05):
+
+| Step | Result |
+|---|---|
+| Home with three working methods | Teal status card "Protection is active" with a "Check protection" button, tiles "Today 0 sec" and "Last 7 days 0 sec", then one compact card per app |
+| Dark theme, and 150% text size | Readable in both. At 150% nothing was cut off. |
+| 30-minute allowance for YouTube, then a Shorts link shared to Dereel, left open for about a minute | The browser showed "29:48 left today" counting down. Home then showed "Today 1 min", "Last 7 days 1 min" with today's bar raised, and "1 min of 30 min used today" on the YouTube card. Activity showed the same 1 min. |
+| Tap the "Today" tile | Activity opened |
+| Add Snapchat (its app is not installed on the emulator) | The status card changed to "Some protection needs your attention", and the Snapchat card showed "Unavailable" with the reason |
+
+Not tried in that run: TalkBack, a break or sleep schedule in force together with the new tiles,
+and a week with time on several days. Nothing of S-05 has been seen on a phone.
+
 ## Rule sets
 
 | Method | Rule set | Location | Fixtures |
