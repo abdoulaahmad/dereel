@@ -54,29 +54,29 @@ Dereel can protect an app in two ways. Both follow the same rules and share the 
 
 <table>
   <tr>
-    <td align="center" width="33%">
-      <img src="docs/assets/screens/home.png" width="250" alt="Home screen in the light theme. A teal card says Protection is active, with a Check protection button. Two tiles show 1 minute of short videos today and 1 minute over the last 7 days. Below are cards for Instagram, YouTube and Facebook, each with its logo, the word Active, and one Open button."><br>
+    <td align="center" valign="top" width="33%">
+      <img src="docs/assets/screens/dashboard.png" width="250" alt="Home screen in the light theme. A teal card says Protection is active, with a Check protection button. Two tiles show 1 minute of short videos today and 1 minute over the last 7 days. Below are cards for Instagram, YouTube and Facebook, each with its logo, the word Active, and one Open button."><br>
       <sub><b>Home</b><br>One status, your time today and this week, and one Open button per app</sub>
     </td>
-    <td align="center" width="33%">
+    <td align="center" valign="top" width="33%">
       <img src="docs/assets/screens/activity.png" width="250" alt="Activity screen. A chart of the last 7 days with one bar for today, then today's time for Instagram Reels, YouTube Shorts and Facebook Reels. YouTube shows 1 minute of its 30-minute allowance used."><br>
       <sub><b>Activity</b><br>The last seven days, and today for each app</sub>
     </td>
-    <td align="center" width="33%">
+    <td align="center" valign="top" width="33%">
       <img src="docs/assets/screens/settings.png" width="250" alt="Settings screen. A Protection card with Accessibility access, Check protection and Alert me if protection stops. Below it, Your apps lists Instagram, YouTube, Facebook and Snapchat with their logos and a one-line summary of each one's rules."><br>
       <sub><b>Settings</b><br>Protection, your apps, time and your data</sub>
     </td>
   </tr>
   <tr>
-    <td align="center" width="33%">
+    <td align="center" valign="top" width="33%">
       <img src="docs/assets/screens/platform.png" width="250" alt="Instagram's own screen. Its status, an Open Instagram button, switches for Block Reels and Allow shared videos, and time limits with a daily allowance of 15 minutes and an interval timer."><br>
       <sub><b>One app</b><br>Its status first, then its rules and time limits</sub>
     </td>
-    <td align="center" width="33%">
-      <img src="docs/assets/screens/home-dark.png" width="250" alt="The same Home screen in the dark theme."><br>
+    <td align="center" valign="top" width="33%">
+      <img src="docs/assets/screens/dashboard-dark.png" width="250" alt="The same Home screen in the dark theme."><br>
       <sub><b>Dark theme</b><br>Follows the phone's setting</sub>
     </td>
-    <td align="center" width="33%">
+    <td align="center" valign="top" width="33%">
       <img src="docs/assets/screens/setup.png" width="250" alt="First-run setup. Choose your apps: Instagram, YouTube, Facebook and Snapchat, each with its logo, what Dereel blocks in it, and a checkbox."><br>
       <sub><b>Setup</b><br>Pick your apps, then set a rule for each</sub>
     </td>
