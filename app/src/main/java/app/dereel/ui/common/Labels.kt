@@ -7,9 +7,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import app.dereel.R
+import app.dereel.core.model.AllowanceSetting
 import app.dereel.core.model.Capabilities
 import app.dereel.core.model.OpeningMethod
 import app.dereel.core.model.Platform
+import app.dereel.core.model.PlatformConfig
+import app.dereel.core.model.RuleSummary
 import app.dereel.core.status.MethodHealth
 import app.dereel.core.status.ProtectionState
 import app.dereel.core.status.RecoveryAction
@@ -97,6 +100,24 @@ fun platformName(platform: Platform): String = stringResource(platformNameRes(pl
 
 @Composable
 fun shortVideoName(platform: Platform): String = stringResource(shortVideoNameRes(platform))
+
+/** One line saying what is switched on for a platform, for the list of apps in Settings. */
+@Composable
+fun ruleSummaryText(config: PlatformConfig): String {
+    val videos = shortVideoName(config.platform)
+    return when (val summary = RuleSummary.of(config)) {
+        RuleSummary.NotAdded -> stringResource(R.string.rules_not_added)
+        RuleSummary.BlockingOff -> stringResource(R.string.rules_blocking_off, videos)
+        is RuleSummary.Blocking -> {
+            val blocking = stringResource(R.string.rules_blocking, videos)
+            val allowance = summary.allowanceMinutes?.let {
+                stringResource(R.string.allowance_value, formatDuration(it * AllowanceSetting.MINUTE_MS))
+            }
+            val interval = if (summary.interval != null) stringResource(R.string.rules_interval) else null
+            listOfNotNull(blocking, allowance, interval).joinToString(stringResource(R.string.rules_separator))
+        }
+    }
+}
 
 @Composable
 fun stateLabel(state: ProtectionState): String = stringResource(

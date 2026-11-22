@@ -27,6 +27,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -80,6 +81,14 @@ fun PlatformScreen(state: MainState, platform: Platform, vm: MainViewModel, open
     val context = LocalContext.current
     val name = platformName(platform)
     val videos = shortVideoName(platform)
+
+    // Once a platform is removed there is nothing left to set here, so go back to the list the
+    // user came from, where it now shows as not added.
+    var wasSelected by rememberSaveable { mutableStateOf(config.selected) }
+    LaunchedEffect(config.selected) {
+        if (wasSelected && !config.selected) onBack()
+        wasSelected = config.selected
+    }
 
     Column(Modifier.fillMaxSize()) {
         TopAppBar(

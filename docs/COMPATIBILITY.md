@@ -36,6 +36,23 @@ Dereel, accessibility service switched on and off through `adb`):
 
 Not tried anywhere: TalkBack and large text on the new screens, and the alert on a phone.
 
+Third emulator run (22 Nov 2026, same emulator, fresh first-run setup with Instagram, YouTube and
+Facebook opened inside Dereel; scope change S-04):
+
+| Step | Result |
+|---|---|
+| First-run setup, Home, Activity, Settings, a platform screen and Help | Each platform shown with its logo, in the light and dark themes |
+| Settings | Five cards. "Your apps" listed "Blocking Reels · 15 min a day" for Instagram and "Blocking Shorts" for YouTube. Accessibility access showed an "Off" pill. |
+| Tap an app row in Settings, then Back | Its screen opened, and Back returned to Settings |
+| Sleep schedule switched on | "Starts 10:00 PM" and "Ends 7:00 AM" appeared under the switch, and Home showed the schedule banner |
+| "Dereel browser data" | Expanded to Instagram, YouTube and Facebook, each with "Clear" |
+| "Remove Snapchat from Dereel" | The screen closed and Settings listed Snapchat as "Not added" with "Add" |
+| "Add" on that row | Snapchat was added and its screen opened |
+
+Not tried in that run: the "On" and "Not responding" states of the Accessibility pill, a
+confirmation dialog for clearing browser data, TalkBack and large text. Nothing of S-04 has been
+seen on a phone.
+
 ## Rule sets
 
 | Method | Rule set | Location | Fixtures |

@@ -157,16 +157,16 @@ is "unavailable". It is never reported as successful blocking.
 <table>
   <tr>
     <td align="center" width="33%">
-      <img src="docs/assets/screens/home.png" width="250" alt="Home screen: a status card that says Protection is active, a YouTube card with one Open button, and chips to add Instagram, Facebook and Snapchat."><br>
+      <img src="docs/assets/screens/home.png" width="250" alt="Home screen: a status card that says Protection is active, then Instagram, YouTube and Facebook cards, each with its logo and one Open button, and a chip to add Snapchat."><br>
       <sub><b>Home</b><br>One status, and one Open button per app</sub>
     </td>
     <td align="center" width="33%">
-      <img src="docs/assets/screens/platform.png" width="250" alt="YouTube screen: status for inside Dereel and for the YouTube app, a Block Shorts switch, and time limits with a daily allowance and an interval timer."><br>
+      <img src="docs/assets/screens/platform.png" width="250" alt="Instagram screen: its status, an Open Instagram button, switches for Block Reels and Allow shared videos, and time limits with a daily allowance of 15 minutes and an interval timer."><br>
       <sub><b>A platform</b><br>Status for each way of opening it, then its rules</sub>
     </td>
     <td align="center" width="33%">
-      <img src="docs/assets/screens/settings.png" width="250" alt="Settings screen: Accessibility access, Check protection, Alert me if protection stops, Sleep schedule, Show a timer while watching, and Offer temporary access."><br>
-      <sub><b>Settings</b><br>Protection, time and your data</sub>
+      <img src="docs/assets/screens/settings.png" width="250" alt="Settings screen: a Protection card with Accessibility access, Check protection and Alert me if protection stops, then Your apps, listing Instagram, YouTube, Facebook and Snapchat with their logos and a one-line summary of each one's rules."><br>
+      <sub><b>Settings</b><br>Protection, your apps, time and your data</sub>
     </td>
   </tr>
 </table>
@@ -289,9 +289,9 @@ test run on a reference device.
 
 | | State |
 |---|---|
-| Automated tests | 194 JVM tests (178 in `:core`, 16 in `:app`) and 14 page-rule tests pass. Lint is clean. |
+| Automated tests | 198 JVM tests (182 in `:core`, 16 in `:app`) and 14 page-rule tests pass. Lint is clean. |
 | Tried on a phone | Pixel 9, Android 17: blocking in the Instagram, YouTube, Facebook Lite and Snapchat apps, and the sleep schedule and interval timer with YouTube |
-| Tried on an emulator only | The "protection has stopped" alert, and the live timer inside Dereel's browser |
+| Tried on an emulator only | The "protection has stopped" alert, the live timer inside Dereel's browser, and the newest Settings screen and app logos |
 | Not tried yet | A daily allowance on a phone, time rules with Instagram, Facebook Lite or Snapchat, Facebook signed in inside Dereel, TalkBack and large text on the newest screens |
 | Not built yet | TikTok, Instagram Lite, the regular Facebook app |
 
@@ -307,6 +307,7 @@ the app's layout is not recognised. It does not claim that blocking still works.
 | [docs/TRACEABILITY.md](docs/TRACEABILITY.md) | Each requirement, with the code and tests that cover it |
 | [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md) | What was tried, on which device and app version, and the result |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Modules, key flows and security boundaries |
+| [docs/THIRD_PARTY.md](docs/THIRD_PARTY.md) | Where the app logos come from, and whose trademarks they are |
 
 ## License
 
@@ -314,9 +315,11 @@ Dereel is meant to be open source, but a license has not been chosen yet (decisi
 [docs/DECISIONS.md](docs/DECISIONS.md)). Until a `LICENSE` file is added, the code is public to
 read and is not licensed for reuse.
 
-Dereel is written independently. It contains no code or assets from other blockers.
+Dereel is written independently. It contains no code or assets from other blockers. The app
+logos it shows are listed in [docs/THIRD_PARTY.md](docs/THIRD_PARTY.md).
 
 ---
 
 <sub>Dereel is not affiliated with or endorsed by Instagram, Facebook, YouTube, Snapchat, TikTok
-or their owners. Product names are used only to say which apps Dereel works with.</sub>
+or their owners. Their names and logos are their trademarks, and are used only to show which apps
+Dereel works with.</sub>

@@ -48,7 +48,7 @@ import app.dereel.ui.common.nativeAppName
 import app.dereel.ui.common.platformName
 import app.dereel.ui.common.shortVideoName
 import app.dereel.ui.home.AllowanceSummary
-import app.dereel.ui.theme.platformTint
+import app.dereel.ui.theme.platformAccent
 
 /**
  * FR-31: today and the previous six days for each selected platform. The combined total is
@@ -177,7 +177,7 @@ private fun TodayCard(ui: PlatformUi, today: DayUsage?) {
                         OpeningMethod.IN_DEREEL -> BodyText(stringResource(R.string.activity_browser_only))
                     }
                 }
-                Text(formatDuration(native + browser), style = MaterialTheme.typography.titleLarge, color = platformTint(platform).accent)
+                Text(formatDuration(native + browser), style = MaterialTheme.typography.titleLarge, color = platformAccent(platform))
             }
             // The total is already the large figure on this card, so only limits are added.
             val onTimer = ui.config.blockShortVideos && ui.interval != IntervalStatus.Off

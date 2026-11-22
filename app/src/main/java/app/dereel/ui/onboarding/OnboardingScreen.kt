@@ -49,6 +49,7 @@ import app.dereel.ui.common.BodyText
 import app.dereel.ui.common.StatusChip
 import app.dereel.ui.common.SwitchRow
 import app.dereel.ui.common.allowanceExplainer
+import app.dereel.ui.common.PlatformAvatar
 import app.dereel.ui.common.platformName
 import app.dereel.ui.common.ruleBlockDescRes
 import app.dereel.ui.common.shortVideoName
@@ -110,7 +111,8 @@ private fun ChoosePlatforms(drafts: MutableMap<Platform, PlatformDraft>) {
                     .padding(16.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Column(Modifier.weight(1f)) {
+                PlatformAvatar(platform)
+                Column(Modifier.weight(1f).padding(horizontal = 12.dp)) {
                     Text(platformName(platform), style = MaterialTheme.typography.titleMedium)
                     BodyText(stringResource(R.string.onboarding_platform_blocks, shortVideoName(platform)))
                     // Say up front when protection works one way only (UX-04).
@@ -140,7 +142,10 @@ private fun ChooseRules(selected: List<Platform>, drafts: MutableMap<Platform, P
         val videos = shortVideoName(platform)
         Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow)) {
             Column(Modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text(platformName(platform), style = MaterialTheme.typography.titleMedium, modifier = Modifier.semantics { heading() })
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    PlatformAvatar(platform, size = 32.dp)
+                    Text(platformName(platform), style = MaterialTheme.typography.titleMedium, modifier = Modifier.semantics { heading() })
+                }
                 SwitchRow(
                     title = stringResource(R.string.rule_block, videos),
                     description = stringResource(ruleBlockDescRes(platform)),

@@ -302,7 +302,8 @@ private fun AddPlatforms(state: MainState, vm: MainViewModel, onPlatformSettings
                             onPlatformSettings(ui.platform)
                         },
                         label = { Text(name) },
-                        leadingIcon = { Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(AssistChipDefaults.IconSize)) },
+                        leadingIcon = { PlatformAvatar(ui.platform, size = 24.dp) },
+                        trailingIcon = { Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(AssistChipDefaults.IconSize)) },
                         modifier = Modifier.semantics { contentDescription = label },
                     )
                 }

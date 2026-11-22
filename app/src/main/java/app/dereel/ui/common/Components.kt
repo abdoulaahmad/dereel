@@ -1,5 +1,8 @@
 package app.dereel.ui.common
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,8 +30,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
@@ -40,10 +45,8 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.ui.semantics.clearAndSetSemantics
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import app.dereel.core.model.Platform
-import app.dereel.ui.theme.platformTint
 import androidx.compose.ui.unit.dp
 import app.dereel.core.status.ProtectionState
 
@@ -93,6 +96,7 @@ fun SwitchRow(
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
     enabled: Boolean = true,
+    leading: (@Composable () -> Unit)? = null,
 ) {
     Row(
         Modifier
@@ -102,6 +106,10 @@ fun SwitchRow(
             .padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
+        if (leading != null) {
+            leading()
+            Spacer(Modifier.width(RowLeadingGap))
+        }
         Column(Modifier.weight(1f).padding(end = 16.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
             Text(title, style = MaterialTheme.typography.bodyLarge)
             if (description != null) {
@@ -112,24 +120,82 @@ fun SwitchRow(
     }
 }
 
+/**
+ * A row that opens something. [leading] is a decorative icon or logo, [status] a short state shown
+ * before the arrow, and [trailing] replaces the arrow when the row does something other than open
+ * a screen. [onClickLabel] tells a screen reader what a tap does when the title alone does not.
+ */
 @Composable
-fun ClickRow(title: String, value: String?, onClick: () -> Unit, description: String? = null) {
+fun ClickRow(
+    title: String,
+    value: String?,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    description: String? = null,
+    leading: (@Composable () -> Unit)? = null,
+    status: (@Composable () -> Unit)? = null,
+    trailing: (@Composable () -> Unit)? = null,
+    titleColor: Color = Color.Unspecified,
+    onClickLabel: String? = null,
+) {
     Row(
-        Modifier
+        modifier
             .fillMaxWidth()
             .heightIn(min = 56.dp)
-            .clickable(role = Role.Button, onClick = onClick)
+            .clickable(role = Role.Button, onClickLabel = onClickLabel, onClick = onClick)
             .padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
+        if (leading != null) {
+            leading()
+            Spacer(Modifier.width(RowLeadingGap))
+        }
         Column(Modifier.weight(1f).padding(end = 8.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-            Text(title, style = MaterialTheme.typography.bodyLarge)
+            Text(title, style = MaterialTheme.typography.bodyLarge, color = titleColor)
             if (value != null) Text(value, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.primary)
             if (description != null) {
                 Text(description, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
-        Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
+        if (status != null) {
+            status()
+            Spacer(Modifier.width(4.dp))
+        }
+        if (trailing != null) {
+            trailing()
+        } else {
+            Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
+        }
+    }
+}
+
+/** A row that only tells you something: same shape as the others, nothing to tap. */
+@Composable
+fun InfoRow(title: String, description: String, leading: (@Composable () -> Unit)? = null) {
+    Row(Modifier.fillMaxWidth().heightIn(min = 56.dp).padding(vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+        if (leading != null) {
+            leading()
+            Spacer(Modifier.width(RowLeadingGap))
+        }
+        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            Text(title, style = MaterialTheme.typography.bodyLarge)
+            Text(description, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        }
+    }
+}
+
+/** Size of a row's leading icon or logo, and the gap after it. Text in a card lines up on their sum. */
+val RowLeadingSize = 40.dp
+val RowLeadingGap = 16.dp
+
+/** A row's leading icon on a soft round background. Decorative: the row's title says what it is. */
+@Composable
+fun RowIcon(icon: ImageVector, tint: Color = MaterialTheme.colorScheme.primary) {
+    Box(
+        Modifier.size(RowLeadingSize).background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape),
+        contentAlignment = Alignment.Center,
+    ) {
+        Icon(icon, contentDescription = null, tint = tint, modifier = Modifier.size(22.dp))
     }
 }
 
@@ -148,20 +214,23 @@ fun ScreenTitle(text: String, modifier: Modifier = Modifier) {
     )
 }
 
-/** A platform's monogram. Decorative: the platform is always named in text beside it. */
+/**
+ * A platform's logo on a small tile (scope change S-04). Decorative: the platform is always named
+ * in text beside it, so the logo is hidden from screen readers and nothing depends on it alone.
+ */
 @Composable
 fun PlatformAvatar(platform: Platform, modifier: Modifier = Modifier, size: Dp = 44.dp) {
-    val tint = platformTint(platform)
+    val logo = platformLogo(platform)
+    val shape = RoundedCornerShape(percent = 28)
+    // Logos keep their own colours, so the tile under them is plain: white in the light theme and
+    // a raised surface in the dark one, unless the brand has a tile colour of its own.
+    val neutral = if (isSystemInDarkTheme()) MaterialTheme.colorScheme.surfaceContainerHigh else Color.White
+    val outline = if (logo.tile == null) Modifier.border(1.dp, MaterialTheme.colorScheme.outlineVariant, shape) else Modifier
     Box(
-        modifier.size(size).background(tint.container, CircleShape).clearAndSetSemantics { },
+        modifier.size(size).clip(shape).background(logo.tile ?: neutral).then(outline).clearAndSetSemantics { },
         contentAlignment = Alignment.Center,
     ) {
-        Text(
-            platformName(platform).take(1),
-            color = tint.onContainer,
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
+        Image(painterResource(logo.drawable), contentDescription = null, modifier = Modifier.size(size * logo.scale))
     }
 }
 
@@ -183,7 +252,8 @@ fun SectionCard(title: String?, modifier: Modifier = Modifier, content: @Composa
     }
 }
 
+/** [inset] moves the start of the line to where the row's text starts, for rows with a leading icon. */
 @Composable
-fun RowDivider() {
-    HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.6f))
+fun RowDivider(inset: Dp = 0.dp) {
+    HorizontalDivider(Modifier.padding(start = inset), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.6f))
 }

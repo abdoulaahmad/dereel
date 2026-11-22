@@ -69,6 +69,22 @@ session on the owner's Pixel 9 with the YouTube app (📱, 21 Nov 2026). See
 | Home reports app protection that has stopped, also for a platform set to open inside Dereel (UX-08, A-38) | ✅ 🔬 | `StatusEvaluatorTest` (protection that worked and was turned off is shown as Needs attention with a fix; never-enabled access is not nagged about). Emulator: seen before and after the change. |
 | Short videos in picture-in-picture | ❌ gap | Not detected or counted (seen on the phone). Listed in Help and in `docs/COMPATIBILITY.md`; open decision D-14. |
 
+## Logos and Settings arrangement (scope change S-04)
+
+Seen on the emulator on 22 Nov 2026, in the light and dark themes. Not yet seen on a phone, and
+no TalkBack or large-text pass was made.
+
+| Requirement | State | Evidence |
+|---|---|---|
+| A platform is never identified by its logo alone (NFR-03) | 🔬 🟡 | `PlatformAvatar` clears its semantics, so screen readers skip the logo, and every place that shows one names the platform in text beside it. Seen on setup, Home, Activity, Settings, a platform screen and Help. |
+| Every platform has a logo | ✅ | `platformLogo` is an exhaustive `when`: a new platform does not compile without one. |
+| The rule summary in Settings describes saved settings and never claims that blocking works (UX-08) | ✅ 🔬 | `RuleSummaryTest`: not added, blocking on with no limits, a limit listed only while it is switched on, no limit reported with blocking off. Seen as "Blocking Reels · 15 min a day". |
+| Settings opens each platform's own controls, and adds a platform (UX-01, UX-03) | 🔬 | Tapping an app row opened its screen and Back returned to Settings. "Add" on a not-added row added the platform and opened its screen. |
+| Advanced or rarely used choices are one tap further in (UX-05) | 🔬 | Sleep times shown only while the schedule is on. "Dereel browser data" expanded to one row per site. |
+| History, one site's browser data and a full reset stay separate actions (FR-35) | 🔬 🟡 | Three separate rows; each site keeps its own "Clear" row and confirmation dialog. The dialogs themselves are unchanged. |
+| Accessibility state is shown with words and an icon, and "off" is not an error (NFR-03, UX-11) | 🔬 | The "Off" pill was seen. The "On" and "Not responding" pills were not seen in this run. |
+| After removing a platform its screen closes | 🔬 | "Remove Snapchat from Dereel" returned to Settings, with Snapchat listed as not added. |
+
 ## Policy (4.1)
 
 | ID | Status | Evidence |

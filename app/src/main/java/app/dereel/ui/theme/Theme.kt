@@ -90,27 +90,18 @@ fun DereelTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable
 }
 
 /**
- * Colours that tell platforms apart at a glance: a soft background with dark text for the
- * monogram, and an accent for charts. They are Dereel's own tints, not the platforms' brand
- * marks, and each pair keeps at least 7:1 contrast. A platform is always named in text as well.
+ * A text colour that tells platforms apart in figures such as today's total. These are Dereel's
+ * own tints, chosen for contrast on the app's surfaces (the brands' own colours are not all
+ * readable as text), and a platform is always named beside the figure as well. The logos
+ * themselves are in ui/common/PlatformLogos.
  */
-data class PlatformTint(val container: Color, val onContainer: Color, val accent: Color)
-
 @Composable
-fun platformTint(platform: Platform): PlatformTint {
+fun platformAccent(platform: Platform): Color {
     val dark = isSystemInDarkTheme()
     return when (platform) {
-        Platform.INSTAGRAM ->
-            if (dark) PlatformTint(Color(0xFF5B2A55), Color(0xFFF7DDF1), Color(0xFFE7A6DA))
-            else PlatformTint(Color(0xFFF3D9EE), Color(0xFF4A1A45), Color(0xFFA2428F))
-        Platform.YOUTUBE ->
-            if (dark) PlatformTint(Color(0xFF6B3A0E), Color(0xFFFFDCC2), Color(0xFFF2B27A))
-            else PlatformTint(Color(0xFFFFDCC2), Color(0xFF4F2500), Color(0xFFB5651D))
-        Platform.FACEBOOK ->
-            if (dark) PlatformTint(Color(0xFF1F3F73), Color(0xFFD6E3FF), Color(0xFFA9C4FF))
-            else PlatformTint(Color(0xFFD6E3FF), Color(0xFF0B2A5B), Color(0xFF2F62C4))
-        Platform.SNAPCHAT ->
-            if (dark) PlatformTint(Color(0xFF5A5200), Color(0xFFF4EA9A), Color(0xFFE0D56A))
-            else PlatformTint(Color(0xFFF4EA9A), Color(0xFF3A3300), Color(0xFF8A7E00))
+        Platform.INSTAGRAM -> if (dark) Color(0xFFE7A6DA) else Color(0xFFA2428F)
+        Platform.YOUTUBE -> if (dark) Color(0xFFF2B27A) else Color(0xFFB5651D)
+        Platform.FACEBOOK -> if (dark) Color(0xFFA9C4FF) else Color(0xFF2F62C4)
+        Platform.SNAPCHAT -> if (dark) Color(0xFFE0D56A) else Color(0xFF8A7E00)
     }
 }

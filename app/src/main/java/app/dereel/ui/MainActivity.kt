@@ -142,7 +142,14 @@ private fun MainScaffold(state: MainState, vm: MainViewModel, opener: PlatformOp
                 HomeScreen(state, vm, opener, onPlatformSettings = { nav.navigate("platform/${it.id}") })
             }
             composable(TopLevel.ACTIVITY.route) { ActivityScreen(state) }
-            composable(TopLevel.SETTINGS.route) { SettingsScreen(state, vm, onHelp = { nav.navigate("help") }) }
+            composable(TopLevel.SETTINGS.route) {
+                SettingsScreen(
+                    state,
+                    vm,
+                    onPlatform = { nav.navigate("platform/${it.id}") },
+                    onHelp = { nav.navigate("help") },
+                )
+            }
             composable("platform/{id}") { entry ->
                 val platform = Platform.fromId(entry.arguments?.getString("id"))
                 if (platform != null) PlatformScreen(state, platform, vm, opener, onBack = { nav.popBackStack() })
